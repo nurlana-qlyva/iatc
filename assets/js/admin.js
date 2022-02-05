@@ -50,13 +50,17 @@ $('#courseBtn').on('click', function(){
     var teacherName = $('#course-teacher').val();
     var courseTerm = $('#course-term').val();
     var courseStudentNumber = $('#course-student').val();
+    var courseStudentSkill = $('#course-student-skill').val();
+    var courseLanguage = $('#course-language').val();
 
     set(courseBranch, {
         course_name: courseName,
         course_image: courseİmage,
         teacher_name: teacherName,
         course_term: courseTerm,
-        student_number: courseStudentNumber
+        student_number: courseStudentNumber,
+        student_skill: courseStudentSkill,
+        course_language:courseLanguage
     });
 });
 
