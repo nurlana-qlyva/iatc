@@ -28,32 +28,35 @@ $('#bannerBtn').on('click', function(){
     });
 });
 
-const homePartnersBranch = ref(db, '/iatc/home/partnership');
+const homePartnersBranch = ref(db, '/iatc/home/partnership/');
+
+// var partnershipİmage;
+
+// $('#partnershipBtn').on('click', function(){
+//     partnershipİmage = $('#home-partnership-image').val();
+
+//     arr.push({partnership_image: partnershipİmage})
+
+//     set(homePartnersBranch, arr);
+//     console.log(arr.length)
+// });
+
+
+const homeAccountBranch = ref(db, '/iatc/home/accounts');
 
 $('#iatcAccountBtn').on('click', function(){
-    var partnershipİmage = $('#partnership-image').val();
+    var iatcFbAccount = $('#iatc-fb-url').val();
+    var iatcTwitterAccount = $('#iatc-twitter-url').val();
+    var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
+    var iatcInstagramAccount = $('#iatc-instagram-url').val();
 
-    var partnerImgValue = homePartnersBranch.push()
-
-    set(partnerImgValue, {partnership_image: partnershipİmage});
+    set(homeAccountBranch, {
+        iatcFbAccountUrl: iatcFbAccount,
+        iatcTwitterAccountUrl: iatcTwitterAccount,
+        iatcLinkedinAccountUrl: iatcLinkedinAccount,
+        iatcInstagramAccountUrl: iatcInstagramAccount,
+    });
 });
-
-
-// const homeAccountBranch = ref(db, '/iatc/home/accounts');
-
-// $('#iatcAccountBtn').on('click', function(){
-//     var iatcFbAccount = $('#iatc-fb-url').val();
-//     var iatcTwitterAccount = $('#iatc-twitter-url').val();
-//     var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
-//     var iatcInstagramAccount = $('#iatc-instagram-url').val();
-
-//     set(homeAccountBranch, {
-//         iatcFbAccountUrl: iatcFbAccount,
-//         iatcTwitterAccountUrl: iatcTwitterAccount,
-//         iatcLinkedinAccountUrl: iatcLinkedinAccount,
-//         iatcInstagramAccountUrl: iatcInstagramAccount,
-//     });
-// });
 
 
 // About səhifəsindəki melumatlari daxil etmek üçün
