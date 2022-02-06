@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getDatabase, ref, set, push} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCYErBQaHHxypzk6StbhxxS39jFUlHRRT8",
@@ -14,35 +14,41 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
-export{ref, set, push};
+export{ref, set, push, onValue};
 
 //Home page
 
 const homeBannerBranch = ref(db, '/iatc/home/banner');
+var bannerArr = [];
 
 $('#bannerBtn').on('click', function(){
     var bannerİmage = $('#banner-image').val();
 
-    set(homeBannerBranch, {
+    bannerArr.push({
         banner_image: bannerİmage,
     });
+
+    set(homeBannerBranch, bannerArr);
 });
 
-const homePartnersBranch = ref(db, '/iatc/home/partnership/');
+const homePartnersBranch = ref(db, '/iatc/home/partnership/');  // error
 
-// var partnershipİmage;
+var partnershipİmage;
+var partnerArr = [];
 
-// $('#partnershipBtn').on('click', function(){
-//     partnershipİmage = $('#home-partnership-image').val();
+$('#partnershipBtn').on('click', function(){
+    partnershipİmage = $('#home-partnership-image').val();
 
-//     arr.push({partnership_image: partnershipİmage})
+    partnerArr.push({
+        partnership_image: partnershipİmage
+    });
 
-//     set(homePartnersBranch, arr);
-//     console.log(arr.length)
-// });
+    set(homePartnersBranch, partnerArr);
+});
 
 
 const homeAccountBranch = ref(db, '/iatc/home/accounts');
+var iatcAccountArr = [];
 
 $('#iatcAccountBtn').on('click', function(){
     var iatcFbAccount = $('#iatc-fb-url').val();
@@ -50,30 +56,37 @@ $('#iatcAccountBtn').on('click', function(){
     var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
     var iatcInstagramAccount = $('#iatc-instagram-url').val();
 
-    set(homeAccountBranch, {
+    iatcAccountArr.push({
         iatcFbAccountUrl: iatcFbAccount,
         iatcTwitterAccountUrl: iatcTwitterAccount,
         iatcLinkedinAccountUrl: iatcLinkedinAccount,
         iatcInstagramAccountUrl: iatcInstagramAccount,
     });
+
+    set(homeAccountBranch, partnerArr);
+
 });
 
 
 // About səhifəsindəki melumatlari daxil etmek üçün
 
 const aboutMainBranch = ref(db, '/iatc/about/main');
+var aboutMainArr = [];
 
 $('#aboutMainBtn').on('click', function(){
     var aboutText = $('#about-text').val();
     var aboutİmage = $('#about-image').val();
 
-    set(aboutMainBranch, {
+    aboutMainArr.push({
         about_text: aboutText,
         about_image: aboutİmage,
-    });
+    })
+
+    set(aboutMainBranch, aboutMainArr);
 });
 
 const aboutBranch = ref(db, '/iatc/about/section');
+var aboutArr = [];
 
 $('#aboutBtn').on('click', function(){
     var memberName = $('#team-member').val();
@@ -83,19 +96,22 @@ $('#aboutBtn').on('click', function(){
     var linkedinAccount = $('#linkedin-url').val();
     var instagramAccount = $('#instagram-url').val();
 
-    set(aboutBranch, {
+    aboutArr.push({
         member_name: memberName,
         member_profession: memberProfession,
         fbAccountUrl: fbAccount,
         twitterAccountUrl: twitterAccount,
         linkedinAccountUrl: linkedinAccount,
         instagramAccountUrl: instagramAccount,
-    });
+    })
+
+    set(aboutBranch, aboutArr);
 });
 
 //Kurslarimiz sehifesindeki melumatlarin daxil edilmesi ucun
 
 const courseBranch = ref(db, '/iatc/course/main');
+var courseArr = [];
 
 $('#courseBtn').on('click', function(){
     var courseName = $('#course-name').val();
@@ -107,7 +123,7 @@ $('#courseBtn').on('click', function(){
     var courseLanguage = $('#course-language').val();
     var courseTeacherExperience = $('#course-teacher-experience').val();
 
-    set(courseBranch, {
+    courseArr.push({
         course_name: courseName,
         course_image: courseİmage,
         teacher_name: teacherName,
@@ -116,10 +132,21 @@ $('#courseBtn').on('click', function(){
         student_skill: courseStudentSkill,
         course_language:courseLanguage,
         course_teacher_experience: courseTeacherExperience,
-    });
+    })
+
+    set(courseBranch, courseArr);
 });
 
+// onValue(courseBranch, function(snapshot){
+//     var obj = snapshot.val();
+//     console.log(obj);
+//     var img = $('<img>');
+//     img.attr('src', obj.course_image);
+//     $('.course-image').append(img);
+// })
+
 const courseAboutBranch = ref(db, '/iatc/course/about');
+var courseAboutArr = [];
 
 $('#courseAboutBtn').on('click', function(){
     var courseAboutText = $('#course-about-text').val();
@@ -127,42 +154,50 @@ $('#courseAboutBtn').on('click', function(){
     var courseProgram = $('#course-program').val();
     var courseSkill = $('#course-skill').val();
 
-    set(courseAboutBranch, {
+    courseAboutArr.push({
         course_about_text: courseAboutText,
         course_participant: courseParticipant,
         course_program: courseProgram,
         course_skill: courseSkill,
-    });
+    })
+
+    set(courseAboutBranch, courseAboutArr);
 });
 
 //Tedbirlerimiz sehifesindeki melumatlarin daxil edilmesi ucun
 
 const eventsBranch = ref(db, '/iatc/events');
+var eventArr = [];
 
 $('#eventBtn').on('click', function(){
     var eventImage = $('#event-image').val();
     var eventHeader = $('#event-header').val();
     var eventText = $('#event-text').val();
 
-    set(eventsBranch, {
+    eventArr.push({
         event_image: eventImage,
         event_header: eventHeader,
         event_text: eventText,
-    });
+    })
+
+    set(eventsBranch, eventArr);
 });
 
 //Elaqe sehifesindeki melumatlarin daxil edilmesi ucun
 
 const contactBranch = ref(db, '/iatc/contact');
+var contactArr = [];
 
 $('#contactBtn').on('click', function(){
     var contactAddress = $('#contact-address').val();
     var emailAddress = $('#contact-email').val();
     var phoneNUmber = $('#contact-phone').val();
 
-    set(contactBranch, {
+    contactArr.push({
         contact_address: contactAddress,
         email_address: emailAddress,
         phone_number: phoneNUmber,
-    });
+    })
+
+    set(contactBranch, contactArr);
 });

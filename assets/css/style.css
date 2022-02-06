@@ -178,7 +178,7 @@
 
 /* home page */
 .header{
-    background-color: #050c2c;
+    background-color: #192459;
     color: #fff;
 }
 .custom-header{
@@ -221,8 +221,33 @@
     text-decoration: none;
     color: #fff;
 }
-.custom-header a:hover{
+.custom-header li a:hover{
     color: orange;
     border-bottom: 2px solid orange;
     padding-bottom: 10px;
+}
+.lang-select a:hover{
+    border: none;
+}
+.custom-header ul li{
+    padding-right: 40px;
+}
+.our-course{
+    padding: 80px 0;
+    text-align: center;
+}
+.border-down{
+    background-color: #192459;
+    width: 50px;
+    height: 4px;
+    display: inline-block;
+}
+.our-course h3{
+    margin-bottom: 0;
+    color: #192459;
+    font-size: 28px;
+}
+.our-course span{
+    color: orange;
+    font-size: 14px;
 }
