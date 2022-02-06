@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getDatabase, ref, set, push} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCYErBQaHHxypzk6StbhxxS39jFUlHRRT8",
@@ -14,35 +14,85 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
-export{ref, set};
+export{ref, set, push};
+
+//Home page
+
+const homeBannerBranch = ref(db, '/iatc/home/banner');
+
+$('#bannerBtn').on('click', function(){
+    var bannerİmage = $('#banner-image').val();
+
+    set(homeBannerBranch, {
+        banner_image: bannerİmage,
+    });
+});
+
+const homePartnersBranch = ref(db, '/iatc/home/partnership');
+
+$('#iatcAccountBtn').on('click', function(){
+    var partnershipİmage = $('#partnership-image').val();
+
+    var partnerImgValue = homePartnersBranch.push()
+
+    set(partnerImgValue, {partnership_image: partnershipİmage});
+});
+
+
+// const homeAccountBranch = ref(db, '/iatc/home/accounts');
+
+// $('#iatcAccountBtn').on('click', function(){
+//     var iatcFbAccount = $('#iatc-fb-url').val();
+//     var iatcTwitterAccount = $('#iatc-twitter-url').val();
+//     var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
+//     var iatcInstagramAccount = $('#iatc-instagram-url').val();
+
+//     set(homeAccountBranch, {
+//         iatcFbAccountUrl: iatcFbAccount,
+//         iatcTwitterAccountUrl: iatcTwitterAccount,
+//         iatcLinkedinAccountUrl: iatcLinkedinAccount,
+//         iatcInstagramAccountUrl: iatcInstagramAccount,
+//     });
+// });
+
 
 // About səhifəsindəki melumatlari daxil etmek üçün
 
-const aboutBranch = ref(db, '/iatc/about');
+const aboutMainBranch = ref(db, '/iatc/about/main');
 
-$('#aboutBtn').on('click', function(){
+$('#aboutMainBtn').on('click', function(){
     var aboutText = $('#about-text').val();
     var aboutİmage = $('#about-image').val();
+
+    set(aboutMainBranch, {
+        about_text: aboutText,
+        about_image: aboutİmage,
+    });
+});
+
+const aboutBranch = ref(db, '/iatc/about/section');
+
+$('#aboutBtn').on('click', function(){
     var memberName = $('#team-member').val();
     var memberProfession = $('#member-profession').val();
     var fbAccount = $('#fb-url').val();
     var twitterAccount = $('#twitter-url').val();
     var linkedinAccount = $('#linkedin-url').val();
+    var instagramAccount = $('#instagram-url').val();
 
     set(aboutBranch, {
-        about_text: aboutText,
-        about_image: aboutİmage,
         member_name: memberName,
         member_profession: memberProfession,
         fbAccountUrl: fbAccount,
         twitterAccountUrl: twitterAccount,
         linkedinAccountUrl: linkedinAccount,
+        instagramAccountUrl: instagramAccount,
     });
 });
 
 //Kurslarimiz sehifesindeki melumatlarin daxil edilmesi ucun
 
-const courseBranch = ref(db, '/iatc/course');
+const courseBranch = ref(db, '/iatc/course/main');
 
 $('#courseBtn').on('click', function(){
     var courseName = $('#course-name').val();
@@ -52,6 +102,7 @@ $('#courseBtn').on('click', function(){
     var courseStudentNumber = $('#course-student').val();
     var courseStudentSkill = $('#course-student-skill').val();
     var courseLanguage = $('#course-language').val();
+    var courseTeacherExperience = $('#course-teacher-experience').val();
 
     set(courseBranch, {
         course_name: courseName,
@@ -60,7 +111,24 @@ $('#courseBtn').on('click', function(){
         course_term: courseTerm,
         student_number: courseStudentNumber,
         student_skill: courseStudentSkill,
-        course_language:courseLanguage
+        course_language:courseLanguage,
+        course_teacher_experience: courseTeacherExperience,
+    });
+});
+
+const courseAboutBranch = ref(db, '/iatc/course/about');
+
+$('#courseAboutBtn').on('click', function(){
+    var courseAboutText = $('#course-about-text').val();
+    var courseParticipant = $('#course-participant').val();
+    var courseProgram = $('#course-program').val();
+    var courseSkill = $('#course-skill').val();
+
+    set(courseAboutBranch, {
+        course_about_text: courseAboutText,
+        course_participant: courseParticipant,
+        course_program: courseProgram,
+        course_skill: courseSkill,
     });
 });
 

@@ -15,13 +15,18 @@
     background-color: #f8f6f3;
     padding: 40px;
 }
-.main-content input{
+.main-content input, .main-content textarea, .main-content select{
     width: 70%;
     border: 1px solid #192459;
     outline: none;
-    border-radius: 6px;
+    border-radius: 4px;
     height: 34px;
     display: inline !important;
+}
+.main-content textarea{
+    height: 200px;
+    overflow-y: scroll;
+    resize: none;
 }
 .main-content label{
     color: #192459;
@@ -169,4 +174,55 @@
     padding: 8px 20px;
     border-radius: 4px;
     margin-top: 16px;
+}
+
+/* home page */
+.header{
+    background-color: #050c2c;
+    color: #fff;
+}
+.custom-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.logo-img{
+    width: 180px;
+    height: 100%;
+    overflow: hidden;
+}
+.logo-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.lang-view div{
+    background: none;
+    border: none;
+}
+.lang-view a img{
+    width: 30px;
+}
+.lang-select a img:hover{
+    outline: 2px solid orange;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px 0px rgba(0,17,79,1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,17,79,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,17,79,1);
+}
+.lang-view a:hover{
+    background: none;
+}
+.dropdown-toggle::after{
+    margin-left: 0 !important;
+}
+.custom-header a{
+    text-decoration: none;
+    color: #fff;
+}
+.custom-header a:hover{
+    color: orange;
+    border-bottom: 2px solid orange;
+    padding-bottom: 10px;
 }
