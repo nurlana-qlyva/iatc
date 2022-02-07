@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getDatabase, ref, set, push, onValue, update} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, update, remove} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 
 const firebaseConfig = {
@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
-export{ref, set, push, onValue, update};
+export{ref, set, push, onValue, update, remove};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 
 // login admin
@@ -99,83 +99,122 @@ $("#logout").on('click', function(){
 
 //Home page
 
+var homeBannerBranch = ref(db, '/iatc/home/banner');
+
 $('#bannerBtn').on('click', function(e){
     e.preventDefault();
     var bannerİmage = $('#banner-image').val();
 
-    var homeBannerBranch = push(ref(db, '/iatc/home/banner'));
+    var bannerBranch = push(homeBannerBranch);
 
-    set(homeBannerBranch, {banner_image: bannerİmage});
+    set(bannerBranch, {banner_image: bannerİmage});
 });
 
 onValue(homeBannerBranch, function(banner){
     var objBanner = banner.val();
-    
-    console.log(banner);
 
-    var key = Object.keys(objBanner)
-    console.log(key)
+    var ul = document.querySelector('#banner-image-list');
+    ul.innerHTML = '';
 
+    for(let [key,image] of Object.entries(objBanner)){
+        var li = document.createElement('li');
+        li.innerHTML = image.banner_image;
+        li.classList.add('list-style');
+        li.dataset.key = key;
+        var deleteList = document.createElement('span');
+        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteList.classList.add('delete-btn');
+        li.append(deleteList);
+        ul.append(li);
+        ul.classList.add('banner-image-list')
+
+        deleteList.dataset.key = key;
+
+        deleteList.onclick = function(){
+            remove(ref(db, '/iatc/home/banner/' + this.dataset.key));
+        }
+    }
 })
 
-const homePartnersBranch = ref(db, '/iatc/home/partnership/');  // error
+const homePartnersBranch = ref(db, '/iatc/home/partnership/');
 
-var partnershipİmage;
-var partnerArr = [];
+$('#partnershipBtn').on('click', function(e){
+    e.preventDefault();
+    var partnershipİmage = $('#home-partnership-image').val();
 
-$('#partnershipBtn').on('click', function(){
-    partnershipİmage = $('#home-partnership-image').val();
+    var partnerBranch = push(homePartnersBranch);
 
-    partnerArr.push({
-        partnership_image: partnershipİmage
-    });
-
-    set(homePartnersBranch, partnerArr);
+    set(partnerBranch, {partnership_image: partnershipİmage});
 });
+
+onValue(homePartnersBranch, function(banner){
+    var objBanner = banner.val();
+
+    var ul = document.querySelector('#partner-image-list');
+    ul.innerHTML = '';
+
+    for(let [key,image] of Object.entries(objBanner)){
+        var li = document.createElement('li');
+        li.innerHTML = image.partnership_image;
+        li.classList.add('list-style');
+        li.dataset.key = key;
+        var deleteList = document.createElement('span');
+        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteList.classList.add('delete-btn');
+        li.append(deleteList);
+        ul.append(li);
+        ul.classList.add('banner-image-list')
+
+        deleteList.dataset.key = key;
+
+        deleteList.onclick = function(){
+            remove(ref(db, '/iatc/home/partnership/' + this.dataset.key));
+        }
+    }
+})
 
 
 const homeAccountBranch = ref(db, '/iatc/home/accounts');
-var iatcAccountArr = [];
 
-$('#iatcAccountBtn').on('click', function(){
+$('#iatcAccountBtn').on('click', function(e){
+    e.preventDefault();
     var iatcFbAccount = $('#iatc-fb-url').val();
     var iatcTwitterAccount = $('#iatc-twitter-url').val();
     var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
     var iatcInstagramAccount = $('#iatc-instagram-url').val();
 
-    iatcAccountArr.push({
+    var iatcAccountArr = push(homeAccountBranch);
+
+    set(iatcAccountArr, {
         iatcFbAccountUrl: iatcFbAccount,
         iatcTwitterAccountUrl: iatcTwitterAccount,
         iatcLinkedinAccountUrl: iatcLinkedinAccount,
         iatcInstagramAccountUrl: iatcInstagramAccount,
     });
-
-    set(homeAccountBranch, partnerArr);
-
 });
-
 
 // About səhifəsindəki melumatlari daxil etmek üçün
 
 const aboutMainBranch = ref(db, '/iatc/about/main');
-var aboutMainArr = [];
 
-$('#aboutMainBtn').on('click', function(){
+$('#aboutMainBtn').on('click', function(e){
+    e.preventDefault();
     var aboutText = $('#about-text').val();
     var aboutİmage = $('#about-image').val();
 
-    aboutMainArr.push({
+    var aboutMainArr = push(aboutMainBranch);
+
+    set(aboutMainArr, {
         about_text: aboutText,
         about_image: aboutİmage,
-    })
-
-    set(aboutMainBranch, aboutMainArr);
+    });
 });
 
 const aboutBranch = ref(db, '/iatc/about/section');
-var aboutArr = [];
 
-$('#aboutBtn').on('click', function(){
+$('#aboutBtn').on('click', function(e){
+    e.preventDefault();
+
     var memberName = $('#team-member').val();
     var memberProfession = $('#member-profession').val();
     var fbAccount = $('#fb-url').val();
@@ -183,24 +222,25 @@ $('#aboutBtn').on('click', function(){
     var linkedinAccount = $('#linkedin-url').val();
     var instagramAccount = $('#instagram-url').val();
 
-    aboutArr.push({
+    var aboutArr = push(aboutBranch);
+
+    set(aboutArr, {
         member_name: memberName,
         member_profession: memberProfession,
         fbAccountUrl: fbAccount,
         twitterAccountUrl: twitterAccount,
         linkedinAccountUrl: linkedinAccount,
         instagramAccountUrl: instagramAccount,
-    })
-
-    set(aboutBranch, aboutArr);
+    });
 });
 
 //Kurslarimiz sehifesindeki melumatlarin daxil edilmesi ucun
 
 const courseBranch = ref(db, '/iatc/course/main');
-var courseArr = [];
 
-$('#courseBtn').on('click', function(){
+$('#courseBtn').on('click', function(e){
+    e.preventDefault();
+
     var courseName = $('#course-name').val();
     var courseİmage = $('#course-image').val();
     var teacherName = $('#course-teacher').val();
@@ -210,7 +250,9 @@ $('#courseBtn').on('click', function(){
     var courseLanguage = $('#course-language').val();
     var courseTeacherExperience = $('#course-teacher-experience').val();
 
-    courseArr.push({
+    var courseArr = push(courseBranch);
+
+    set(courseArr, {
         course_name: courseName,
         course_image: courseİmage,
         teacher_name: teacherName,
@@ -219,72 +261,65 @@ $('#courseBtn').on('click', function(){
         student_skill: courseStudentSkill,
         course_language:courseLanguage,
         course_teacher_experience: courseTeacherExperience,
-    })
-
-    set(courseBranch, courseArr);
+    });
 });
 
-// onValue(courseBranch, function(snapshot){
-//     var obj = snapshot.val();
-//     console.log(obj);
-//     var img = $('<img>');
-//     img.attr('src', obj.course_image);
-//     $('.course-image').append(img);
-// })
-
 const courseAboutBranch = ref(db, '/iatc/course/about');
-var courseAboutArr = [];
 
-$('#courseAboutBtn').on('click', function(){
+$('#courseAboutBtn').on('click', function(e){
+    e.preventDefault();
+
     var courseAboutText = $('#course-about-text').val();
     var courseParticipant = $('#course-participant').val();
     var courseProgram = $('#course-program').val();
     var courseSkill = $('#course-skill').val();
 
-    courseAboutArr.push({
+    var courseAboutArr = push(courseAboutBranch);
+
+    set(courseAboutArr, {
         course_about_text: courseAboutText,
         course_participant: courseParticipant,
         course_program: courseProgram,
         course_skill: courseSkill,
-    })
-
-    set(courseAboutBranch, courseAboutArr);
+    });
 });
 
 //Tedbirlerimiz sehifesindeki melumatlarin daxil edilmesi ucun
 
 const eventsBranch = ref(db, '/iatc/events');
-var eventArr = [];
 
-$('#eventBtn').on('click', function(){
+$('#eventBtn').on('click', function(e){
+    e.preventDefault();
+
     var eventImage = $('#event-image').val();
     var eventHeader = $('#event-header').val();
     var eventText = $('#event-text').val();
 
-    eventArr.push({
+    var eventArr = push(eventsBranch);
+
+    set(eventArr, {
         event_image: eventImage,
         event_header: eventHeader,
         event_text: eventText,
-    })
-
-    set(eventsBranch, eventArr);
+    });
 });
 
 //Elaqe sehifesindeki melumatlarin daxil edilmesi ucun
 
 const contactBranch = ref(db, '/iatc/contact');
-var contactArr = [];
 
-$('#contactBtn').on('click', function(){
+$('#contactBtn').on('click', function(e){
+    e.preventDefault();
+
     var contactAddress = $('#contact-address').val();
     var emailAddress = $('#contact-email').val();
     var phoneNUmber = $('#contact-phone').val();
 
-    contactArr.push({
+    var contactArr = push(contactBranch);
+
+    set(contactArr, {
         contact_address: contactAddress,
         email_address: emailAddress,
         phone_number: phoneNUmber,
-    })
-
-    set(contactBranch, contactArr);
+    });
 });

@@ -132,8 +132,17 @@
     border: none;
     border-radius: 6px;
     text-align: center;
+    margin-right: 10px;
 }
-#banner-image-list{
+.delete-btn{
+    color: #ff0000;
+    margin-left: 20px;
+}
+.banner-image-list{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    width: 70%;
     margin-top: 10px;
 }
 /* admin login page */
