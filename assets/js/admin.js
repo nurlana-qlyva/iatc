@@ -18,11 +18,86 @@ export const db = getDatabase(app);
 export{ref, set, push, onValue, update};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 
+// login admin
+
+const auth = getAuth();
+
+
+$("#signUp").on('click', function(e){
+    e.preventDefault();
+
+    var email = $("#email").val();
+    var userName = $('#userName').val();
+    var password = $("#password").val();
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+            
+            set(ref(db, 'users/' + user.uid),{
+                email: email,
+                password: password
+            })
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('errorMessage');
+    });
+})
+
+$("#signInBtn").on('click', function(e){
+      e.preventDefault();
+
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+
+            const dt = new Date();
+
+            update(ref(db, 'users/' + user.uid),{
+                last_login: dt,
+            })
+
+            window.location.replace("../admin.html");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('errorMessage');
+    });
+})
+
+const user = auth.currentUser;
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+    }
+});
+
+$("#logout").on('click', function(){
+
+    signOut(auth).then(() => {
+        // Sign-out successful.
+
+        window.location.assign("./admin/adminLogin.html");
+
+    }).catch((error) => {
+        // An error happened.
+        alert('error');
+    });
+})
+
 //Home page
-
-//const homeBannerBranch = ref(db, '/iatc/home/banner');
-
-var bannerArr = [];
 
 $('#bannerBtn').on('click', function(e){
     e.preventDefault();
@@ -30,22 +105,18 @@ $('#bannerBtn').on('click', function(e){
 
     var homeBannerBranch = push(ref(db, '/iatc/home/banner'));
 
-    //bannerArr.push({banner_image: bannerİmage});
-
     set(homeBannerBranch, {banner_image: bannerİmage});
 });
 
-// onValue(homeBannerBranch, function(banner){
-//     var objBanner = banner.val();
+onValue(homeBannerBranch, function(banner){
+    var objBanner = banner.val();
     
-//     console.log(banner);
+    console.log(banner);
 
-//         var bannerList = $('<li>');
-//         bannerList.attr('class', 'list-style')
-//         bannerList.html(objBanner.banner_image);
-//         $('#banner-image-list').append(bannerList);
+    var key = Object.keys(objBanner)
+    console.log(key)
 
-// })
+})
 
 const homePartnersBranch = ref(db, '/iatc/home/partnership/');  // error
 
@@ -217,90 +288,3 @@ $('#contactBtn').on('click', function(){
 
     set(contactBranch, contactArr);
 });
-
-
-
-// login admin
-
-const auth = getAuth();
-
-
-  $("#signUp").on('click', function(e){
-    e.preventDefault();
-
-    var email = $("#email").val();
-    var userName = $('#userName').val();
-    var password = $("#password").val();
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up
-            const user = userCredential.user;
-            
-            set(ref(db, 'users/' + user.uid),{
-                email: email,
-                password: password
-            })
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert('errorMessage');
-    });
-  })
-
-  $("#signInBtn").on('click', function(e){
-      e.preventDefault();
-
-        var email = $("#email").val();
-        var password = $("#password").val();
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-
-            const dt = new Date();
-
-            update(ref(db, 'users/' + user.uid),{
-                // email: email,
-                // password: password
-                last_login: dt,
-            })
-
-            window.location.replace("../admin.html");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert('errorMessage');
-        });
-
-  })
-
-  const user = auth.currentUser;
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      // ...
-    } else {
-      // User is signed out
-      
-    }
-  });
-
-  $("#logout").on('click', function(){
-      
-
-      signOut(auth).then(() => {
-        // Sign-out successful.
-
-        window.location.assign("./admin/adminLogin.html");
-
-      }).catch((error) => {
-        // An error happened.
-        alert('error');
-      });
-  })
-  console.log(sessionStorage)
