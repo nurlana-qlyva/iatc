@@ -99,6 +99,29 @@
 .form-view label, .form-view input{
     display: block;
 }
+.close {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+.close:hover {
+    background-color: crimson;
+    color: white;
+}
+.list-style{
+    background-color: #192459;
+    display: inline;
+    padding: 4px 10px 6px;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+}
+#banner-image-list{
+    margin-top: 10px;
+}
 /* admin login page */
 .custom-container{
     max-width: 960px;

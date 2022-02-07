@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, update} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCYErBQaHHxypzk6StbhxxS39jFUlHRRT8",
@@ -14,22 +15,37 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
-export{ref, set, push, onValue};
+export{ref, set, push, onValue, update};
+export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 
 //Home page
 
-const homeBannerBranch = ref(db, '/iatc/home/banner');
+//const homeBannerBranch = ref(db, '/iatc/home/banner');
+
 var bannerArr = [];
 
-$('#bannerBtn').on('click', function(){
+$('#bannerBtn').on('click', function(e){
+    e.preventDefault();
     var bannerİmage = $('#banner-image').val();
 
-    bannerArr.push({
-        banner_image: bannerİmage,
-    });
+    var homeBannerBranch = push(ref(db, '/iatc/home/banner'));
 
-    set(homeBannerBranch, bannerArr);
+    //bannerArr.push({banner_image: bannerİmage});
+
+    set(homeBannerBranch, {banner_image: bannerİmage});
 });
+
+// onValue(homeBannerBranch, function(banner){
+//     var objBanner = banner.val();
+    
+//     console.log(banner);
+
+//         var bannerList = $('<li>');
+//         bannerList.attr('class', 'list-style')
+//         bannerList.html(objBanner.banner_image);
+//         $('#banner-image-list').append(bannerList);
+
+// })
 
 const homePartnersBranch = ref(db, '/iatc/home/partnership/');  // error
 
@@ -201,3 +217,95 @@ $('#contactBtn').on('click', function(){
 
     set(contactBranch, contactArr);
 });
+
+
+
+// login admin
+
+const auth = getAuth();
+
+
+  $("#signUp").on('click', function(e){
+    e.preventDefault();
+
+    var email = $("#email").val();
+    var userName = $('#userName').val();
+    var password = $("#password").val();
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+            
+            set(ref(db, 'users/' + user.uid),{
+                email: email,
+                password: password
+            })
+            alert('user created')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('errorMessage');
+    });
+  })
+
+  $("#signInBtn").on('click', function(e){
+      e.preventDefault();
+
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+
+            const dt = new Date();
+
+            update(ref(db, 'users/' + user.uid),{
+                // email: email,
+                // password: password
+                last_login: dt,
+            })
+
+
+            alert('User logged in')
+
+            window.location.replace("../admin.html");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('errorMessage');
+        });
+
+  })
+
+  const user = auth.currentUser;
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      
+    }
+  });
+
+  $("#logout").on('click', function(){
+      
+
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        alert('You sign out');
+
+        window.location.assign("./admin/adminLogin.html");
+
+      }).catch((error) => {
+        // An error happened.
+        alert('error');
+      });
+  })
+  console.log(sessionStorage)
