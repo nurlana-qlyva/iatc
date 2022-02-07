@@ -241,7 +241,6 @@ const auth = getAuth();
                 email: email,
                 password: password
             })
-            alert('user created')
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -268,9 +267,6 @@ const auth = getAuth();
                 // password: password
                 last_login: dt,
             })
-
-
-            alert('User logged in')
 
             window.location.replace("../admin.html");
         })
@@ -299,7 +295,6 @@ const auth = getAuth();
 
       signOut(auth).then(() => {
         // Sign-out successful.
-        alert('You sign out');
 
         window.location.assign("./admin/adminLogin.html");
 
