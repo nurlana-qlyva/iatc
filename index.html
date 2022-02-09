@@ -1,103 +1,547 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link rel="stylesheet" href="../assets/css/reset.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
-        <link rel="stylesheet" href="./assets/lib/carousel/dist/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="./assets/lib/carousel/dist/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-        <link rel="stylesheet" href="./assets/css/style.css">
-    </head>
-    <body>
-        <!-- header -->
-        <header class="header">
-            <div class="container">
-                <div class="header-navbar">
-                    <nav class="navbar custom-header">
-                        <a href="./index.html">
-                            <div class="logo-img">
-                                <img src="./assets/image/logo_main.png" alt="logo">
-                            </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-navbar">
+                <nav class="navbar custom-header">
+                    <a href="./index.html">
+                        <div class="logo-img">
+                            <img src="./assets/image/logo_main.png" alt="logo">
+                        </div>
+                    </a>
+                    <ul class="unstyled-list list-inline">
+                        <li class="list-inline-item">
+                            <a href="./index.html">Ana Səhifə</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Haqqımızda</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Kurslarımız</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Tədbirlərimiz</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Əlaqə</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown lang-view">
+                        <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-expanded="false" role="button">
+                            <img src="./assets/image/az.png" alt="lang">
                         </a>
-                        <ul class="unstyled-list list-inline">
-                            <li class="list-inline-item">
-                                <a href="./index.html">Ana Səhifə</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Haqqımızda</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Kurslarımız</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Tədbirlərimiz</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Əlaqə</a>
-                            </li>
-                        </ul>
-                        <div class="dropdown lang-view">
-                            <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" role="button">
+                        <div class="dropdown-menu lang-select" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">
                                 <img src="./assets/image/az.png" alt="lang">
                             </a>
-                            <div class="dropdown-menu lang-select" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">
-                                    <img src="./assets/image/az.png" alt="lang">
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <img src="./assets/image/en.png" alt="lang">    
-                                </a>
-                            </div>
+                            <a class="dropdown-item" href="#">
+                                <img src="./assets/image/en.png" alt="lang">
+                            </a>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- main -->
-        <main>
-            <section class="banner">
-                <div class="container">
-                    
-                </div>
-            </section>
+    <!-- main -->
+    <main>
 
-            <section class="our-course">
-                <div class="container">
-                    <span>Karyerana bizimlə başla</span>
-                    <h3 data-aos="fade-up">Kurslarımız</h3>
-                    <div class="border-down" data-aos="fade-up"></div>
-                    <div class="ourcourse-content">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div>
-                                    <div class="course-image">
-                                        
+        <!-- banner slider -->
+        <section class="banner">
+            <div class="container">
+                <div class="banner-border">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="banner-slider" id="banner-slider">
+                                <div class="banner-img">
+                                    <img src="./assets/image/slayder_backend.png" alt="banner">
+                                    <div class="more-btn">
+                                        <a href="#">Ətraflı
+                                            <i class="fa fa-solid fa-arrow-right"></i>
+                                        </a>
                                     </div>
-                                    <div class="about-course"></div>
+                                </div>
+                                <div class="banner-img">
+                                    <img src="./assets/image/digital.png" alt="banner">
+                                    <div class="more-btn">
+                                        <a href="#">Ətraflı
+                                            <i class="fa fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
 
-        <!-- footer -->
-        <footer></footer>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        <script src="./assets/lib/carousel/dist/owl.carousel.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-        <script type="module" src="../assets/js/admin.js"></script>
-        <script src="./assets/js/script.js"></script>
-        <script src="./assets/js/admin.js"></script>
-    </body>
+        <!-- kurslarimiz -->
+
+        <section class="our-course heading">
+            <div class="container">
+                <div class="header-section" data-aos="fade-right">
+                    <span>Karyerana bizimlə başla</span>
+                    <h3>Kurslarımız</h3>
+                    <div class="border-down"></div>
+                </div>
+                <div class="ourcourse-content">
+                    <div class="course-slider">
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/hire-backend-developer.jpg" alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>BackEnd</h4>
+                                <p>Müəllim: Asaf Amir</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/ui.png" alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>BackEnd</h4>
+                                <p>Müəllim: Dan Freyfeld</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/full.png" alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>FullStack Development</h4>
+                                <p>Müəllim: Məmmədrza Talıbov</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/digital.png" alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>Digital Marketing</h4>
+                                <p>Müəllim: Asaf Amir</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/front.png " alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>FrontEnd</h4>
+                                <p>Müəllim: Rza Talıbov</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                        <div class="course">
+                            <div class="course-image">
+                                <img src="./assets/image/mobile.png" alt="course">
+                            </div>
+                            <div class="about-course">
+                                <h4>Mobile Development</h4>
+                                <p>Müəllim: Qədir Rüstəmli</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> 15 həftə</li>
+                                    <li><i class="fa fa-solid fa-user"></i> 30 student</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">Ətraflı</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- komanda -->
+
+        <section class="our-course heading">
+            <div class="container">
+                <div class="header-section" data-aos="fade-left">
+                    <span>Haqqımızda</span>
+                    <h3>Komanda Üzvləri</h3>
+                    <div class="border-down"></div>
+                </div>
+                <div class="ourcourse-content">
+                    <div class="member-slider">
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-rasim.jpg" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Rasim Abdullayev</a></h4>
+                                <p>Baş Menecer</p>
+                                <ul>
+                                    <li>
+                                        <a href="№">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-dan.png" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Alex Kaplun</a></h4>
+                                <p>Baş Məsləhətçi</p>
+                                <ul>
+                                    <li>
+                                        <a href="№">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-rza.jpg" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Rza Talıbov</a></h4>
+                                <p>Full Stack Web Developer</p>
+                                <ul>
+                                    <li>
+                                        <a href="№">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-asaf.jpg" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Asaf Amir</a></h4>
+                                <p>Full Stack Developer</p>
+                                <ul>
+                                    <li>
+                                        <a href="№">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-drenfeld.jpg" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Dan Freyfeld</a></h4>
+                                <p>Uİ/UX Designer</p>
+                                <ul>
+                                    <li>
+                                        <a href="№">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="members">
+                            <div class="member-image">
+                                <img src="./assets/image//team-qadir.jpg" alt="course">
+                            </div>
+                            <div class="about-member">
+                                <h4><a href="#">Qədir Rüstəmli</a></h4>
+                                <p>Full Stack Developer</p>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- tedbir ve xeberler -->
+
+        <section class="news-events heading">
+            <div class="container">
+                <div class="header-section" data-aos="fade-right">
+                    <h3>Xəbər və Tədbirlər</h3>
+                    <div class="border-down"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="news-card">
+                            <a href="#">
+                                <div class="body-card">
+                                    <div class="image-card">
+                                        <img src="./assets/image/iatc.png" alt="news">
+                                    </div>
+                                    <div class="header-card">
+                                        <h4>İsrail Azərbaycan Təlim Mərkəzi Fəaliyyətə Başladı</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="news-card">
+                            <a href="#">
+                                <div class="body-card">
+                                    <div class="image-card">
+                                        <img src="./assets/image/class.jpeg" alt="news">
+                                    </div>
+                                    <div class="header-card">
+                                        <h4>İsrail – Azərbaycan Təlim Mərkəzində Veb Proqramlaşdırma Kurslarına Start
+                                            Verilib</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="Page navigation example nav-bar">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  -->
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-conten-center align-items-center">
+                <div class="col-md-6">
+                    <span><i class="fa fa-solid fa-copyright"></i> 2021 Israil Azərbaycan Təlim Mərkəzi</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="account-iatc">
+                        <ul class="mb-0">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-brands fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-brands fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/admin.js"></script>
+
+
+    <!-- <script>
+            // Add Firebase products that you want to use
+            const firebaseConfig = {
+                apiKey: "AIzaSyA_gpkpE4lcPVf2qVJhfrrsnmfDsK_WEj4",
+                authDomain: "israelwebsite-c76a9.firebaseapp.com",
+                databaseURL: "https://israelwebsite-c76a9-default-rtdb.firebaseio.com",
+                projectId: "israelwebsite-c76a9",
+                storageBucket: "israelwebsite-c76a9.appspot.com",
+                messagingSenderId: "471677978707",
+                appId: "1:471677978707:web:a288d65ce26d2853809ea6",
+                measurementId: "G-E5CMSTFBSE"
+            };
+    
+            // Initialize Firebase
+            const app = firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+    
+    
+            function getEvent() {
+                db.collection("events").get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const div = document.createElement("div");
+                        div.innerHTML = `
+                            <a href="./event.html?event=${doc.id}">
+                                <div class="body-card">
+                                    <div class="image-card">
+                                        <img src="${doc.data().photo}" class="card-img-top" alt="">
+                                    </div>
+                                    <div class="header-card">
+                                        <h4>${doc.data().name}</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        `
+                        document.querySelector('.news-card').appendChild(div);
+                    });
+                });
+            }
+    
+            getEvent()
+        </script> -->
+
+
+</body>
+
 </html>
