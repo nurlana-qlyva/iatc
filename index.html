@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +11,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
 <body>
     <!-- header -->
     <header class="header">
@@ -64,9 +61,8 @@
         </div>
     </header>
 
-    <!-- main -->
+    <!-- main body -->
     <main>
-
         <!-- banner slider -->
         <section class="banner">
             <div class="container">
@@ -98,7 +94,6 @@
         </section>
 
         <!-- kurslarimiz -->
-
         <section class="our-course heading">
             <div class="container">
                 <div class="header-section" data-aos="fade-right">
@@ -211,7 +206,6 @@
         </section>
 
         <!-- komanda -->
-
         <section class="our-course heading">
             <div class="container">
                 <div class="header-section" data-aos="fade-left">
@@ -383,15 +377,47 @@
             </div>
         </section>
 
-        <!-- tedbir ve xeberler -->
-
+        <!-- parners -->
         <section class="news-events heading">
             <div class="container">
-                <div class="header-section" data-aos="fade-right">
+                <div class="header-section">
+                    <h3>Tərəfdaşlar</h3>
+                    <div class="border-down"></div>
+                </div>
+                <div class="partner-slider">
+                    <div class="partner-image">
+                        <img src="./assets/image/1.png" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/azii.jpg" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/kpt_bank.jpg" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/p1.svg" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/p2.png" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/p3.svg" alt="partner">
+                    </div>
+                    <div class="partner-image">
+                        <img src="./assets/image/pblogo.png" alt="partner">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- tedbir ve xeberler -->
+        <section class="news-events heading">
+            <div class="container">
+                <div class="header-section">
                     <h3>Xəbər və Tədbirlər</h3>
                     <div class="border-down"></div>
                 </div>
-                <div class="row">
+                <div class="row data">
                     <div class="col-md-4">
                         <div class="news-card">
                             <a href="#">
@@ -414,7 +440,7 @@
                                         <img src="./assets/image/class.jpeg" alt="news">
                                     </div>
                                     <div class="header-card">
-                                        <h4>İsrail – Azərbaycan Təlim Mərkəzində Veb Proqramlaşdırma Kurslarına Start
+                                        <h4>İsrail Azərbaycan Təlim Mərkəzində Veb Proqramlaşdırma Kurslarına Start
                                             Verilib</h4>
                                     </div>
                                 </div>
@@ -445,8 +471,6 @@
                 </div>
             </div>
         </section>
-
-        <!--  -->
     </main>
 
     <!-- footer -->
@@ -485,7 +509,7 @@
             </div>
         </div>
     </footer>
-
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -498,50 +522,49 @@
     <script src="./assets/js/script.js"></script>
     <script type="module" src="./assets/js/admin.js"></script>
 
+    <script>
+        // Add Firebase products that you want to use
+        const firebaseConfig = {
+            apiKey: "AIzaSyA_gpkpE4lcPVf2qVJhfrrsnmfDsK_WEj4",
+            authDomain: "israelwebsite-c76a9.firebaseapp.com",
+            databaseURL: "https://israelwebsite-c76a9-default-rtdb.firebaseio.com",
+            projectId: "israelwebsite-c76a9",
+            storageBucket: "israelwebsite-c76a9.appspot.com",
+            messagingSenderId: "471677978707",
+            appId: "1:471677978707:web:a288d65ce26d2853809ea6",
+            measurementId: "G-E5CMSTFBSE"
+        };
 
-    <!-- <script>
-            // Add Firebase products that you want to use
-            const firebaseConfig = {
-                apiKey: "AIzaSyA_gpkpE4lcPVf2qVJhfrrsnmfDsK_WEj4",
-                authDomain: "israelwebsite-c76a9.firebaseapp.com",
-                databaseURL: "https://israelwebsite-c76a9-default-rtdb.firebaseio.com",
-                projectId: "israelwebsite-c76a9",
-                storageBucket: "israelwebsite-c76a9.appspot.com",
-                messagingSenderId: "471677978707",
-                appId: "1:471677978707:web:a288d65ce26d2853809ea6",
-                measurementId: "G-E5CMSTFBSE"
-            };
-    
-            // Initialize Firebase
-            const app = firebase.initializeApp(firebaseConfig);
-            const db = firebase.firestore();
-    
-    
-            function getEvent() {
-                db.collection("events").get().then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        const div = document.createElement("div");
-                        div.innerHTML = `
-                            <a href="./event.html?event=${doc.id}">
-                                <div class="body-card">
-                                    <div class="image-card">
-                                        <img src="${doc.data().photo}" class="card-img-top" alt="">
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+
+        function getEvent() {
+            db.collection("events").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const div = document.createElement("div");
+                    div.innerHTML = `
+                            <div class="news-card">
+                                <a href="./event.html?event=${doc.id}">
+                                    <div class="body-card">
+                                        <div class="image-card">
+                                            <img src="${doc.data().photo}" class="card-img-top" alt="">
+                                        </div>
+                                        <div class="header-card">
+                                            <h4>${doc.data().name}</h5>
+                                        </div>
                                     </div>
-                                    <div class="header-card">
-                                        <h4>${doc.data().name}</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        `
-                        document.querySelector('.news-card').appendChild(div);
-                    });
+                                </a>
+                            </div>
+                    `
+                    div.classList.add('col-md-4')
+                    document.querySelector('.data').appendChild(div);
                 });
-            }
-    
-            getEvent()
-        </script> -->
+            });
+        }
 
-
+        getEvent()
+    </script>
 </body>
-
 </html>

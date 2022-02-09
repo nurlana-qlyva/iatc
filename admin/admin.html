@@ -23,7 +23,7 @@
                     <nav>
                         <ul class="menu-list" id="menu">
                             <li>
-                                <a href="./admin.html">
+                                <a href="admin.html">
                                     <div class="d-inline">
                                         <i class="fas fa-home"></i>
                                         <span>Ana Səhifə</span>
@@ -31,7 +31,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html" id="about">
+                                <a href="./about.html" id="about">
                                     <div class="d-inline">
                                         <i class="fas fa-address-card"></i>
                                         <span>Haqqımızda</span>
@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="course.html">
+                                <a href="./course.html">
                                     <div class="d-inline">
                                         <i class="fab fa-servicestack"></i>
                                         <span>Kurslarımız</span>
@@ -63,7 +63,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="event.html">
+                                <a href="./event.html">
                                     <div class="d-inline">
                                         <i class="fas fa-calendar-week"></i>
                                         <span>Tədbirlərimiz</span>
@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="./contact.html">
                                     <div class="d-inline">
                                         <i class="fas fa-file-contract"></i>
                                         <span>Əlaqə</span>
@@ -81,49 +81,67 @@
                         </ul>
                     </nav>
                 </div>
+                <div class="sign-out">
+                    <button type="button" id="logout">Sign Out</button>
+                </div>
             </div>
             <div class="main-content">
-                <div class="aboutPage">
-                    <h2>Contact Page</h2>
+                <h2>Home Page</h2>
                     <form action="">
                         <div class="form-view">
-                            <label for="address">Address</label>
-                            <input type="text" name="address" id="contact-address">
+                            <label for="home-image">Banner Image</label>
+                            <input type="text" name="home-image" id="banner-image">
+                            <button type="submit" id="bannerBtn" class="mt-0">Add</button>
+                            <ul id="banner-image-list" class="unstyled-list inline-list"></ul>
                         </div>
                         <div class="form-view">
-                            <label for="email">Email Address</label>
-                            <input type="text" name="email" id="contact-email">
-                        </div>
-                        <div class="form-view">
-                            <label for="phone">Phone Number</label>
-                            <input type="text" name="phone" id="contact-phone">
-                        </div>
-                        <div class="btn-position">
-                            <button type="submit" id="contactBtn">Add</button>
+                            <label for="partnership-image">Our Partners Image</label>
+                            <input type="text" name="partnership-image" id="home-partnership-image">
+                            <button type="submit" id="partnershipBtn" class="mt-0">Add</button>
+                            <ul id="partner-image-list" class="unstyled-list inline-list"></ul>
                         </div>
                     </form>
-                    <table class="table admin-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone Number</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody id="push-inner">
-                            
-                        </tbody>
-                    </table>
-                </div>
+                    <h2>Accounts</h2>
+                    <form action="">
+                        <div class="form-view">
+                            <label for="iatc-fb-account">Facebook Account</label>
+                            <input type="text" name="iatc-fb-account" id="iatc-fb-url">
+                            <div class="btn-position">
+                                <button type="submit" id="iatcAccountBtn1">Add</button>
+                            </div>
+                            <ul id="fb-list" class="unstyled-list inline-list"></ul>
+                        </div>
+                        <div class="form-view">
+                            <label for="iatc-twitter-account">Twitter Account</label>
+                            <input type="text" name="iatc-twitter-account" id="iatc-twitter-url">
+                            <div class="btn-position">
+                                <button type="submit" id="iatcAccountBtn2">Add</button>
+                            </div>
+                            <ul id="twitter-list" class="unstyled-list inline-list"></ul>
+                        </div>
+                        <div class="form-view">
+                            <label for="iatc-linkedin-account">Linkedin Account</label>
+                            <input type="text" name="iatc-linkedin-account" id="iatc-linkedin-url">
+                            <div class="btn-position">
+                                <button type="submit" id="iatcAccountBtn3">Add</button>
+                            </div>
+                            <ul id="linkedin-list" class="unstyled-list inline-list"></ul>
+                        </div>
+                        <div class="form-view">
+                            <label for="iatc-instagram-account">Instagram Account</label>
+                            <input type="text" name="iatc-instagram-account" id="iatc-instagram-url">
+                            <div class="btn-position">
+                                <button type="submit" id="iatcAccountBtn4">Add</button>
+                            </div>
+                            <ul id="instagram-list" class="unstyled-list inline-list"></ul>
+                        </div>
+                    </form>
             </div>
         </div>
         
         
-        
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-        <script type="module" src="../assets/js/contact.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="../assets/js/index.js"></script>
     </body>
 </html>

@@ -31,4 +31,13 @@ $(document).ready(function(){
         dots: true,
         autoplaySpeed: 3000,
     })
+    $('.partner-slider').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        accessibility: true,
+        autoplay: true,
+        dots: true,
+        autoplaySpeed: 3000,
+    })
 });
