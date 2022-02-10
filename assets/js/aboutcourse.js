@@ -22,156 +22,396 @@ export { getFirestore };
 
 // kurslar barede melumarin daxil edilmesi ucun
 
-const courseAboutBranch = ref(db, '/iatc/course/about');
+const courseAboutBranch = ref(db, '/iatc/course/about/backend/aboutCourse');
 
 $('#courseAboutBtn').on('click', function(e){
     e.preventDefault();
 
     var courseName = $('#course-name').val();
-    var courseAboutText = $('#course-about-text').val();
-    var courseShortİnfo = $('#course-info').val();
-    var teacherInfo = $('#teacher-info').val();
+    var courseTerm = $('#course-term').val();
+    var courseStudent = $('#course-student').val();
+    var courseImage = $('#course-image').val();
+    var courseInfo = $('#course-info').val();
+    var courseSummary = $('#course-about-text').val();
 
     var courseAboutArr = push(courseAboutBranch);
 
     set(courseAboutArr, {
         course_name: courseName,
-        course_about_text: courseAboutText,
-        course_info: courseShortİnfo,
-        teacher_info: teacherInfo,
+        course_term: courseTerm,
+        course_student: courseStudent,
+        course_image: courseImage,
+        course_info: courseInfo,
+        course_summary: courseSummary,
     });
 });
 
+onValue(courseAboutBranch, function(banner){
+    var objBanner = banner.val();
+    
+    var count = 0;
 
+    for(let [key,value] of Object.entries(objBanner)){
+        var tr = document.createElement('tr');
+
+        var nameTd = document.createElement('td');
+        var termTd = document.createElement('td');
+        var studentTd = document.createElement('td');
+        var imageTd = document.createElement('td');
+        var infoTd = document.createElement('td');
+        var summaryTd = document.createElement('td');
+
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
+
+        nameTd.innerHTML = value.course_name;
+        termTd.innerHTML = value.course_term;
+        imageTd.innerHTML = value.course_image;
+        studentTd.innerHTML = value.course_student;
+        infoTd.innerHTML = value.course_info;
+        summaryTd.innerHTML = value.course_summary;
+
+
+        count++;
+        tdcount.innerHTML = count;
+
+        nameTd.dataset.key = key;
+
+        edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        edit.classList.add('delete-btn');
+
+        tr.append(count);
+        tr.append(nameTd);
+        tr.append(termTd);
+        tr.append(imageTd);
+        tr.append(studentTd);
+        tr.append(infoTd);
+        tr.append(summaryTd);
+        tr.append(edit);
+
+        $("#push-inner").append(tr);
+
+        edit.dataset.key = key;
+
+        edit.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/aboutCourse/' + this.dataset.key));
+        }
+    }
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var div = $("<div>");
+
+        div.html(`
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="text-course">
+                            <h3>${value.course_name}</h3>
+                            <ul class="unstyled-list list-inline">
+                                <li class="list-inline-item">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>${value.course_term}</span>
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fa-regular fa-user"></i>
+                                    <span>${value.course_student}</span>
+                                </li>
+                            </ul>
+                            <div>${value.course_info}</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <div class="image-course">
+                            <img src="${value.course_image}" alt="backend">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `)
+
+        $(".about-course-section").append(div);
+    }
+})
 
 // //course participant
 
-// const courseAboutParticipantBranch = ref(db, '/iatc/course/about/participants');
+const courseAboutParticipantBranch = ref(db, '/iatc/course/about/backend/participants');
 
-// $('#courseAboutParticipantBtn').on('click', function(e){
-//     e.preventDefault();
+$('#courseAboutParticipantBtn').on('click', function(e){
+    e.preventDefault();
 
-//     var courseParticipant = $('#course-participant').val();
+    var courseParticipant = $('#course-participant').val();
 
-//     var courseAboutParticipantArr = push(courseAboutParticipantBranch);
+    var courseAboutParticipantArr = push(courseAboutParticipantBranch);
 
-//     set(courseAboutParticipantArr, {
-//        course_participant: courseParticipant,
-//     });
-// });
+    set(courseAboutParticipantArr, {
+       course_participant: courseParticipant,
+    });
+});
 
-// onValue(courseAboutParticipantBranch, function(banner){
-//     var objBanner = banner.val();
+onValue(courseAboutParticipantBranch, function(banner){
+    var objBanner = banner.val();
     
-//     var ul = document.querySelector('#participant');
-//     ul.innerHTML = '';
+    var ul = document.querySelector('#participant');
+    ul.innerHTML = '';
 
-//     for(let [key,value] of Object.entries(objBanner)){
-//         var li = document.createElement('li');
-//         li.innerHTML = value.course_participant;
-//         li.classList.add('list-style');
-//         li.dataset.key = key;
+    for(let [key,value] of Object.entries(objBanner)){
+        var li = document.createElement('li');
+        li.innerHTML = value.course_participant;
+        li.classList.add('list-style');
+        li.dataset.key = key;
         
-//         let deleteList = document.createElement('span');
-//         deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-//         deleteList.classList.add('delete-btn');
+        let deleteList = document.createElement('span');
+        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteList.classList.add('delete-btn');
 
-//         li.append(deleteList);
-//         ul.append(li);
-//         ul.classList.add('banner-image-list');
+        li.append(deleteList);
+        ul.append(li);
+        ul.classList.add('banner-image-list');
 
-//         deleteList.dataset.key = key;
+        deleteList.dataset.key = key;
 
-//         deleteList.onclick = function(){
-//             remove(ref(db, '/iatc/course/about/participants/' + this.dataset.key));
-//         }
-//     }
-// })
+        deleteList.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/participants/' + this.dataset.key));
+        }
+    }
+})
 
 // //course program
 
-// const courseAboutProgramBranch = ref(db, '/iatc/course/about/program');
+const courseAboutProgramBranch = ref(db, '/iatc/course/about/backend/program');
 
-// $('#courseAboutProgramBtn').on('click', function(e){
-//     e.preventDefault();
+$('#courseAboutProgramBtn').on('click', function(e){
+    e.preventDefault();
 
-//     var courseProgram = $('#course-program').val();
+    var courseProgram = $('#course-program').val();
 
-//     var courseAboutProgramArr = push(courseAboutProgramBranch);
+    var courseAboutProgramArr = push(courseAboutProgramBranch);
 
-//     set(courseAboutProgramArr, {
-//        course_program: courseProgram,
-//     });
-// });
+    set(courseAboutProgramArr, {
+       course_program: courseProgram,
+    });
+});
 
-// onValue(courseAboutProgramBranch, function(banner){
-//     var objBanner = banner.val();
+onValue(courseAboutProgramBranch, function(banner){
+    var objBanner = banner.val();
     
-//     var ul = document.querySelector('#program');
-//     ul.innerHTML = '';
+    var ul = document.querySelector('#program');
+    ul.innerHTML = '';
 
-//     for(let [key,value] of Object.entries(objBanner)){
-//         var li = document.createElement('li');
-//         li.innerHTML = value.course_program;
-//         li.classList.add('list-style');
-//         li.dataset.key = key;
+    for(let [key,value] of Object.entries(objBanner)){
+        var li = document.createElement('li');
+        li.innerHTML = value.course_program;
+        li.classList.add('list-style');
+        li.dataset.key = key;
         
-//         let deleteList = document.createElement('span');
-//         deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-//         deleteList.classList.add('delete-btn');
+        let deleteList = document.createElement('span');
+        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteList.classList.add('delete-btn');
 
-//         li.append(deleteList);
-//         ul.append(li);
-//         ul.classList.add('banner-image-list');
+        li.append(deleteList);
+        ul.append(li);
+        ul.classList.add('banner-image-list');
 
-//         deleteList.dataset.key = key;
+        deleteList.dataset.key = key;
 
-//         deleteList.onclick = function(){
-//             remove(ref(db, '/iatc/course/about/program/' + this.dataset.key));
-//         }
-//     }
-// })
+        deleteList.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/program/' + this.dataset.key));
+        }
+    }
+})
 
 // //course skills
 
-// const courseAboutSkillBranch = ref(db, '/iatc/course/about/skill');
+const courseAboutSkillBranch = ref(db, '/iatc/course/about/backend/skill');
 
-// $('#courseAboutSkillBtn').on('click', function(e){
-//     e.preventDefault();
+$('#courseAboutSkillBtn').on('click', function(e){
+    e.preventDefault();
 
-//     var courseSkill = $('#course-skill').val();
+    var courseSkill = $('#course-skill').val();
 
-//     var courseAboutSkillArr = push(courseAboutSkillBranch);
+    var courseAboutSkillArr = push(courseAboutSkillBranch);
 
-//     set(courseAboutSkillArr, {
-//        course_skill: courseSkill,
-//     });
-// });
+    set(courseAboutSkillArr, {
+       course_skill: courseSkill,
+    });
+});
 
-// onValue(courseAboutSkillBranch, function(banner){
-//     var objBanner = banner.val();
+onValue(courseAboutSkillBranch, function(banner){
+    var objBanner = banner.val();
     
-//     var ul = document.querySelector('#skill');
-//     ul.innerHTML = '';
+    var ul = document.querySelector('#skill');
+    ul.innerHTML = '';
 
-//     for(let [key,value] of Object.entries(objBanner)){
-//         var li = document.createElement('li');
-//         li.innerHTML = value.course_skill;
-//         li.classList.add('list-style');
-//         li.dataset.key = key;
+    for(let [key,value] of Object.entries(objBanner)){
+        var li = document.createElement('li');
+        li.innerHTML = value.course_skill;
+        li.classList.add('list-style');
+        li.dataset.key = key;
         
-//         let deleteList = document.createElement('span');
-//         deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-//         deleteList.classList.add('delete-btn');
+        let deleteList = document.createElement('span');
+        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteList.classList.add('delete-btn');
 
-//         li.append(deleteList);
-//         ul.append(li);
-//         ul.classList.add('banner-image-list');
+        li.append(deleteList);
+        ul.append(li);
+        ul.classList.add('banner-image-list');
 
-//         deleteList.dataset.key = key;
+        deleteList.dataset.key = key;
 
-//         deleteList.onclick = function(){
-//             remove(ref(db, '/iatc/course/about/skill/' + this.dataset.key));
-//         }
-//     }
-// })
+        deleteList.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/skill/' + this.dataset.key));
+        }
+    }
+})
+
+// card information
+
+const courseAboutCardBranch = ref(db, '/iatc/course/about/backend/card');
+
+$('#courseAboutCardBtn').on('click', function(e){
+    e.preventDefault();
+
+    var student = $('#all-student').val();
+    var lectures = $('#lectures').val();
+    var quiz = $('#quiz').val();
+    var duration = $('#duration').val();
+    var skill = $('#all-skill').val();
+    var language = $('#lang').val();
+    var assesment = $('#assesment').val();
+
+    var courseAboutCardArr = push(courseAboutCardBranch);
+
+    set(courseAboutCardArr, {
+        student_num: student,
+        lecture_num: lectures,
+        quiz_num: quiz,
+        duration_num: duration,
+        skill_level: skill,
+        language_select: language,
+        assesment_boolean: assesment,
+    });
+});
+
+onValue(courseAboutCardBranch, function(banner){
+    var objBanner = banner.val();
+    
+    var count = 0;
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var tr = document.createElement('tr');
+
+        var studentTd = document.createElement('td');
+        var lectureTd = document.createElement('td');
+        var quizTd = document.createElement('td');
+        var durationTd = document.createElement('td');
+        var skillTd = document.createElement('td');
+        var languageTd = document.createElement('td');
+        var assesmentTd = document.createElement('td');
+
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
+
+        studentTd.innerHTML = value.student_num;
+        lectureTd.innerHTML = value.lecture_num;
+        quizTd.innerHTML = value.quiz_num;
+        durationTd.innerHTML = value.duration_num;
+        skillTd.innerHTML = value.skill_level;
+        languageTd.innerHTML = value.language_select;
+        assesmentTd.innerHTML = value.assesment_boolean;
+
+        count++;
+        tdcount.innerHTML = count;
+
+        studentTd.dataset.key = key;
+
+        edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        edit.classList.add('delete-btn');
+
+        tr.append(count);
+        tr.append(studentTd);
+        tr.append(lectureTd);
+        tr.append(quizTd);
+        tr.append(durationTd);
+        tr.append(skillTd);
+        tr.append(languageTd);
+        tr.append(assesmentTd);
+        tr.append(edit);
+
+        $("#push-inner").append(tr);
+
+        edit.dataset.key = key;
+
+        edit.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/card/' + this.dataset.key));
+        }
+    }
+})
+
+// about teacher
+
+const courseAboutTeacherBranch = ref(db, '/iatc/course/about/backend/teacher');
+
+$('#courseAboutTeacherBtn').on('click', function(e){
+    e.preventDefault();
+
+    var teacher = $('#teacher').val();
+    var image = $('#image').val();
+    var experience = $('#experience').val();
+    var info = $('#info').val();
+
+    var courseAboutTeacherArr = push(courseAboutTeacherBranch);
+
+    set(courseAboutTeacherArr, {
+        teacher,
+        image,
+        experience,
+        info
+    });
+});
+
+onValue(courseAboutTeacherBranch, function(banner){
+    var objBanner = banner.val();
+    
+    var count = 0;
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var tr = document.createElement('tr');
+
+        var teacherTd = document.createElement('td');
+        var imageTd = document.createElement('td');
+        var experienceTd = document.createElement('td');
+        var infoTd = document.createElement('td');
+
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
+
+        teacherTd.innerHTML = value.teacher;
+        imageTd.innerHTML = value.image;
+        experienceTd.innerHTML = value.experience;
+        infoTd.innerHTML = value.info;
+
+        count++;
+        tdcount.innerHTML = count;
+
+        teacherTd.dataset.key = key;
+
+        edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        edit.classList.add('delete-btn');
+
+        tr.append(count);
+        tr.append(teacherTd);
+        tr.append(imageTd);
+        tr.append(experienceTd);
+        tr.append(infoTd);
+        tr.append(edit);
+
+        $("#push-inner").append(tr);
+
+        edit.dataset.key = key;
+
+        edit.onclick = function(){
+            remove(ref(db, '/iatc/course/about/backend/teacher/' + this.dataset.key));
+        }
+    }
+})

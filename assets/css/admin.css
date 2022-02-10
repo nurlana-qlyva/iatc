@@ -142,8 +142,8 @@
     color: #fff;
     cursor: pointer;
 }
-.main-content h2{
-    margin-top: 30px;
+.main-content h2, .main-content h3, .main-content h4, .main-content h5{
+    margin-top: 20px;
     color: #192459;
 }
 .sidebar-header{
@@ -220,4 +220,16 @@
 }
 .push-inner tr{
     display: block;
+}
+.added-pages-inner, .added-pages-inner input, .added-pages-inner textarea{
+    width: 100%;
+}
+.collapse-btn{
+    margin-top: 16px;
+}
+.collapse-btn a{
+    background-color: #192459;
+}
+.collapse-btn a:hover{
+    background-color: #050c2c;
 }

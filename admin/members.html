@@ -98,10 +98,25 @@
                             <label for="image">Image</label>
                             <input type="text" name="image" id="member-image">
                         </div>
-                        <div class="form-view">
-                            <label for="fb-account">Account</label>
-                            <input type="text" name="fb-account" id="fb-url">
-                        </div>
+                    <h2>Accounts</h2>
+                    <form action="">
+                            <div class="form-view">
+                                <label for="iatc-fb-account">Facebook Account</label>
+                                <input type="text" name="iatc-fb-account" id="iatc-fb-url">
+                            </div>
+                            <div class="form-view">
+                                <label for="iatc-twitter-account">Twitter Account</label>
+                                <input type="text" name="iatc-twitter-account" id="iatc-twitter-url">
+                            </div>
+                            <div class="form-view">
+                                <label for="iatc-linkedin-account">Linkedin Account</label>
+                                <input type="text" name="iatc-linkedin-account" id="iatc-linkedin-url">
+                            </div>
+                            <div class="form-view">
+                                <label for="iatc-instagram-account">Instagram Account</label>
+                                <input type="text" name="iatc-instagram-account" id="iatc-instagram-url">
+                            </div>
+                        </form>
                         <div class="btn-position">
                             <button type="submit" id="aboutMemebersBtn">Add</button>
                         </div>
@@ -113,18 +128,18 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Profession</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Account</th>
+                                <th scope="col">Facbook</th>
+                                <th scope="col">Twitter</th>
+                                <th scope="col">Linkedin</th>
+                                <th scope="col">Instagram</th>
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
-                        <tbody id="push-inner">
-                            
-                        </tbody>
+                        <tbody id="push-inner"></tbody>
                     </table>
                  </div>
             </div>
         </div>
-        
         
         
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

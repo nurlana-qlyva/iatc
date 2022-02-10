@@ -4,6 +4,11 @@
     background-color: #192459;
     color: #fff;
 }
+.header{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
 .custom-header{
     display: flex;
     justify-content: space-between;
@@ -22,6 +27,9 @@
 .lang-view div{
     background: none;
     border: none;
+}
+.lang-view{
+    display: inline;
 }
 .lang-view a img{
     width: 30px;
@@ -54,6 +62,7 @@
 }
 .custom-header ul li{
     padding-right: 40px;
+    display: inline;
 }
 
 /* section banner */
@@ -73,8 +82,11 @@
     object-fit: cover;
     border-radius: 8px;
 }
-.banner, .news-events{
+.news-events{
     padding: 40px 0 ;
+}
+.banner, .breadcrump-page{
+    padding: 126px 0 40px;
 }
 .more-btn a{
     background-color: orange;
@@ -115,6 +127,7 @@
 /* kurslarimiz */
 .our-course{
     text-align: center;
+    padding: 22px 0;
 }
 .border-down{
     background-color: #192459;
@@ -219,7 +232,6 @@
 /* partners logo */
 .partner-image{
     height: 140px;
-    width: 200px !important;
     margin: 0 11px;
 }
 .partner-image img{
@@ -228,9 +240,7 @@
     object-fit: contain;
 }
 .partner-slider{
-    height: 200px !important;
     box-shadow: 0 2px 10px rgb(0 22 84 / 10%);
-    padding: 40px 0;
 }
 /* tedbir ve xeberler */
 .image-card{
@@ -300,4 +310,171 @@
 }
 .footer span{
     font-size: 12px;
+}
+.menu-responsive{
+    padding: 20px 15px;
+}
+.menu{
+    color: #fff;
+    font-size: 24px;
+    border-radius:4px;
+    outline: none !important;
+    border: 0;
+}
+.mega-menu p{
+    font-size:18px;
+}
+.side-menu{
+    background:rgba(0, 0, 0, 0.30);
+    position: fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    z-index:3;
+}
+.side-menu{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:all .4s ease;
+}
+.side-menu.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:all;
+}
+.mega-menu{
+    height:100vh;
+    background:#192459;
+    width:336px;   
+    box-shadow: -3px 3px 43px -11px rgba(166,166,166,0.75);
+    padding:32px;
+    transition:all .6s ease;
+    transform: translate(-100%);
+}
+.transform00{
+    transform: translate(0) !important;
+}
+.mega-menu-list .show-submenu{
+    all:unset;
+    width:24px;
+    height:24px;
+    border-radius:2px;
+    font-size:14px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    color:#586268;
+    cursor: pointer;
+}
+.mega-menu-list li a,.sub-menu span a{
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:16px;
+}
+.mega-menu-list li a:hover{
+    text-decoration:none;
+    color:#f27a1a;
+}
+.sub-menu span{
+    display: block;
+}
+.sub-menu{
+    padding-left:12px;
+    display:none;
+}
+.sub-menu span a::before{
+    content:'';
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    border:1px solid #ACB3B8;
+    margin-right:12px;
+    position: relative;
+    top:-1px;
+}
+.show-submenu i{
+    transition:all .4s ease;
+}
+.has-submenu.active .show-submenu i{
+    transform:rotate(90deg);
+}
+.general-list li a{
+    margin-top:8px;
+    margin-bottom:8px;
+    display:inline-block;
+    color:#f27a1a;
+    font-size:20px;
+}
+.general-list li a span.test{
+    color:green;
+}
+.general-list li.pink{
+    color:pink;
+    background:yellow;
+}
+.logo-img-menu{
+    width: 200px;
+    height: 100px;
+}
+.logo-img-menu img{
+    width: 100%;
+    height: 100%;
+}
+/* about page */
+.breadcrumb{
+    background: transparent !important;
+    justify-content: center;
+}
+.breadcrumb-item a{
+    color: #fff;
+}
+.breadcrumb-item a:hover{
+    color: orange;
+    text-decoration: none;
+}
+.breadcrump-page{
+    padding: 160px 0 40px;
+    background: #f4f4f4 url(../image/banner-4.jpg);
+    background-repeat: no-repeat;
+}
+.context{
+    color: #fff;
+}
+.breadcrumb-item.active{
+    color: orange;
+}
+.about-page-section, .about-course-section{
+    padding: 80px 0;
+}
+.image-ourcourse, .image-course{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.image-ourcourse img, .image-course img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.image-course img, .image-course{
+    border-radius: 8px;
+}
+.about{
+    justify-content: center;
+    align-items: center;
+}
+.bg-section{
+    background-color: #f4f4f4;
+}
+.text-course h3{
+    color: #192459;
+    font-size: 24px;
+}
+.text-course li i, .text-course span, .text-course div{
+    color: #192459;
 }

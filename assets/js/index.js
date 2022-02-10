@@ -59,6 +59,20 @@ onValue(homeBannerBranch, function(banner){
             remove(ref(db, '/iatc/home/banner/' + this.dataset.key));
         }
     }
+    // for(let [key,image] of Object.entries(objBanner)){
+    //         const div = $("<div>");
+    //         console.log(image)
+    //         div.html(`
+    //             <img src="${image.banner_image}" alt="banner">
+    //             <div class="more-btn">
+    //             <a href="#">Ətraflı
+    //                     <i class="fa fa-solid fa-arrow-right"></i>
+    //                 </a>
+    //             </div>
+    //         `);
+    //         div.attr('class', 'banner-img');
+    //         $('.banner-view').append(div);
+    // }
 })
 
 //terefdas sirketlerin logosu ucun
@@ -102,164 +116,70 @@ onValue(homePartnersBranch, function(banner){
 
 //merkezin sosial sebeke accountlari ucun linkler
 
-const homeAccountBranch1 = ref(db, '/iatc/home/accounts/fb');
-const homeAccountBranch2 = ref(db, '/iatc/home/accounts/twitter');
-const homeAccountBranch3 = ref(db, '/iatc/home/accounts/linkedin');
-const homeAccountBranch4 = ref(db, '/iatc/home/accounts/instagram');
+const homeAccountBranch = ref(db, '/iatc/home/accounts');
 
-// facebook account
-
-$('#iatcAccountBtn1').on('click', function(e){
+$('#iatcAccountBtn').on('click', function(e){
     e.preventDefault();
+    
     var iatcFbAccount = $('#iatc-fb-url').val();
+    var iatcTwitterAccount = $('#iatc-twitter-url').val();
+    var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
+    var iatcInstagramAccount = $('#iatc-instagram-url').val();
 
-    var iatcAccountArr = push(homeAccountBranch1);
+    var iatcAccountArr = push(homeAccountBranch);
 
     set(iatcAccountArr, {
         iatcFbAccountUrl: iatcFbAccount,
+        iatcTwitterAccountUrl: iatcTwitterAccount,
+        iatcLinkedinAccountUrl: iatcLinkedinAccount,
+        iatcInstagramAccountUrl: iatcInstagramAccount,
     });
 });
 
-onValue(homeAccountBranch1, function(banner){
+onValue(homeAccountBranch, function(banner){
     var objBanner = banner.val();
 
     var ul = document.querySelector('#fb-list');
     ul.innerHTML = '';
 
     for(let [key,account] of Object.entries(objBanner)){
-        var li = document.createElement('li');
-        li.innerHTML = account.iatcFbAccountUrl;
-        li.classList.add('list-style');
-        li.dataset.key = key;
-        var deleteList = document.createElement('span');
-        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        deleteList.classList.add('delete-btn');
-        li.append(deleteList);
-        ul.append(li);
-        ul.classList.add('banner-image-list');
+        var tr = document.createElement('tr');
 
-        deleteList.dataset.key = key;
+        var fbTd = document.createElement('td');
+        var twitterTd = document.createElement('td');
+        var linkedinTd = document.createElement('td');
+        var instagramTd = document.createElement('td');
 
-        deleteList.onclick = function(){
-            remove(ref(db, '/iatc/home/accounts/fb/' + this.dataset.key));
-        }
-        console.log(account.iatcFbAccountUrl)
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
+
+        fbTd.innerHTML = value.iatcFbAccountUrl;
+        twitterTd.innerHTML = value.iatcTwitterAccountUrl;
+        linkedinTd.innerHTML = value.iatcLinkedinAccountUrl;
+        instagramTd.innerHTML = value.iatcInstagramAccountUrl;
+
+
+        count++;
+        tdcount.innerHTML = count;
+
+        nameTd.dataset.key = key;
+
+        edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        edit.classList.add('delete-btn');
+
+        tr.append(count);
+        tr.append(fbTd);
+        tr.append(twitterTd);
+        tr.append(linkedinTd);
+        tr.append(instagramTd);
+        tr.append(edit);
+
+        $("#push-inner").append(tr);
+
+        edit.dataset.key = key;
+
+        edit.onclick = function(){
+            remove(ref(db, '/iatc/members/' + this.dataset.key));
+        };
     }
 })
-
-// twitter account
-
-$('#iatcAccountBtn2').on('click', function(e){
-    e.preventDefault();
-    var iatcTwitterAccount = $('#iatc-twitter-url').val();
-
-    var iatcAccountArr = push(homeAccountBranch2);
-
-    set(iatcAccountArr, {
-        iatcTwitterAccountUrl: iatcTwitterAccount,
-    });
-});
-
-onValue(homeAccountBranch2, function(banner){
-    var objBanner = banner.val();
-
-    var ul = document.querySelector('#twitter-list');
-    ul.innerHTML = '';
-
-    for(let [key,account] of Object.entries(objBanner)){
-        var li = document.createElement('li');
-        li.innerHTML = account.iatcTwitterAccountUrl;
-        li.classList.add('list-style');
-        li.dataset.key = key;
-        var deleteList = document.createElement('span');
-        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        deleteList.classList.add('delete-btn');
-        li.append(deleteList);
-        ul.append(li);
-        ul.classList.add('banner-image-list');
-
-        deleteList.dataset.key = key;
-
-        deleteList.onclick = function(){
-            remove(ref(db, '/iatc/home/accounts/twitter/' + this.dataset.key));
-        }
-    }
-})
-
-// linkedin account
-
-$('#iatcAccountBtn3').on('click', function(e){
-    e.preventDefault();
-    var iatcLinkedinAccount = $('#iatc-linkedin-url').val();
-
-    var iatcAccountArr = push(homeAccountBranch3);
-
-    set(iatcAccountArr, {
-        iatcLinkedinAccountUrl: iatcLinkedinAccount,
-    });
-});
-
-onValue(homeAccountBranch3, function(banner){
-    var objBanner = banner.val();
-
-    var ul = document.querySelector('#linkedin-list');
-    ul.innerHTML = '';
-
-    for(let [key,account] of Object.entries(objBanner)){
-        var li = document.createElement('li');
-        li.innerHTML = account.iatcLinkedinAccountUrl;
-        li.classList.add('list-style');
-        li.dataset.key = key;
-        var deleteList = document.createElement('span');
-        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        deleteList.classList.add('delete-btn');
-        li.append(deleteList);
-        ul.append(li);
-        ul.classList.add('banner-image-list');
-
-        deleteList.dataset.key = key;
-
-        deleteList.onclick = function(){
-            remove(ref(db, '/iatc/home/accounts/linkedin/' + this.dataset.key));
-        }
-    }
-});
-
-// instagram account
-
-$('#iatcAccountBtn4').on('click', function(e){
-    e.preventDefault();
-    var iatcInstagramAccount = $('#iatc-instagram-url').val();
-
-    var iatcAccountArr = push(homeAccountBranch4);
-
-    set(iatcAccountArr, {
-        iatcInstagramAccountUrl: iatcInstagramAccount,
-    });
-});
-
-onValue(homeAccountBranch4, function(banner){
-    var objBanner = banner.val();
-
-    var ul = document.querySelector('#instagram-list');
-    ul.innerHTML = '';
-
-    for(let [key, account] of Object.entries(objBanner)){
-        var li = document.createElement('li');
-        li.innerHTML = account.iatcInstagramAccountUrl;
-        li.classList.add('list-style');
-        li.dataset.key = key;
-        var deleteList = document.createElement('span');
-        deleteList.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        deleteList.classList.add('delete-btn');
-        li.append(deleteList);
-        ul.append(li);
-        ul.classList.add('banner-image-list');
-
-        deleteList.dataset.key = key;
-
-        deleteList.onclick = function(){
-            remove(ref(db, '/iatc/home/accounts/instagram/' + this.dataset.key));
-        }
-    }
-});

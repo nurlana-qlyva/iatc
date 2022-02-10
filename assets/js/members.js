@@ -30,15 +30,21 @@ $('#aboutMemebersBtn').on('click', function(e){
     var memberName = $('#team-member').val();
     var memberProfession = $('#member-profession').val();
     var memberImage = $('#member-image').val();
-    var account = $('#fb-url').val();;
+    var fbAccount = $('#iatc-fb-url').val();
+    var twitterAccount = $('#iatc-twitter-url').val();
+    var linkedinAccount = $('#iatc-linkedin-url').val();
+    var instagramAccount = $('#iatc-instagram-url').val();
 
     var aboutArr = push(memberBranch);
-
+ 
     set(aboutArr, {
         member_name: memberName,
         member_profession: memberProfession,
         member_image: memberImage,
-        accountUrl: account,
+        fbAccountUrl: fbAccount,
+        twitterAccountUrl: twitterAccount,
+        linkedinAccountUrl: linkedinAccount,
+        instagramAccountUrl: instagramAccount,
     });
 });
 
@@ -53,7 +59,10 @@ onValue(memberBranch, function(banner){
         var nameTd = document.createElement('td');
         var professionTd = document.createElement('td');
         var imageTd = document.createElement('td');
-        var accountTd = document.createElement('td');
+        var fbTd = document.createElement('td');
+        var twitterTd = document.createElement('td');
+        var linkedinTd = document.createElement('td');
+        var instagramTd = document.createElement('td');
 
         var edit = document.createElement('td');
         var tdcount = document.createElement('td');
@@ -61,7 +70,10 @@ onValue(memberBranch, function(banner){
         nameTd.innerHTML = value.member_name;
         professionTd.innerHTML = value.member_profession;
         imageTd.innerHTML = value.member_image;
-        accountTd.innerHTML = value.accountUrl;
+        fbTd.innerHTML = value.fbAccountUrl;
+        twitterTd.innerHTML = value.twitterAccountUrl;
+        linkedinTd.innerHTML = value.linkedinAccountUrl;
+        instagramTd.innerHTML = value.instagramAccountUrl;
 
         count++;
         tdcount.innerHTML = count;
@@ -75,7 +87,10 @@ onValue(memberBranch, function(banner){
         tr.append(nameTd);
         tr.append(professionTd);
         tr.append(imageTd);
-        tr.append(accountTd);
+        tr.append(fbTd);
+        tr.append(twitterTd);
+        tr.append(linkedinTd);
+        tr.append(instagramTd);
         tr.append(edit);
 
         $("#push-inner").append(tr);

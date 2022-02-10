@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getDatabase, ref, set, push, onValue, update, remove, get} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -17,7 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export{ref, set, push, onValue, update, remove, get};
-export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 export { getFirestore }; 
 
 // haqqimizda sehifesi ucun
@@ -46,11 +44,13 @@ onValue(aboutBranch, function(banner){
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
-        var headerTd = document.getElementById('header');
-        var textTd = document.getElementById('text');
-        var imageTd = document.getElementById('image');
-        var edit = document.getElementById('edit');
-        var tdcount = document.getElementById('count');
+        var tr = document.createElement('tr');
+
+        var headerTd = document.createElement('td');
+        var textTd = document.createElement('td');
+        var imageTd = document.createElement('td');
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
 
         headerTd.innerHTML = value.about_header;
         textTd.innerHTML = value.about_text;
@@ -60,15 +60,45 @@ onValue(aboutBranch, function(banner){
         tdcount.innerHTML = count;
 
         headerTd.dataset.key = key;
-        textTd.dataset.key = key;
         
         edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
         edit.classList.add('delete-btn');
+
+        tr.append(tdcount);
+        tr.append(headerTd);
+        tr.append(textTd);
+        tr.append(imageTd);
+        tr.append(edit);
+
+        $("#push-inner").append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
             remove(ref(db, '/iatc/about/main/' + this.dataset.key));
         }
+    }
+    for(let [key,value] of Object.entries(objBanner)){
+        var div = $("<div>");
+
+        div.html(`
+            <div class="container">
+                <div class="row about">
+                    <div class="col-12 col-lg-6">
+                        <div class="about-ourcourse">
+                            <h2>${value.about_header}</h2>
+                            <div>${value.about_text}</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="image-ourcourse">
+                            <img src="${value.about_image}" alt="iatc">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `)
+        // div.attr('class', '')
+        $(".about-page-section").append(div);
     }
 })

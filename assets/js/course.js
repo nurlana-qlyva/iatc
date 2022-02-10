@@ -91,4 +91,4 @@ onValue(courseBranch, function(banner){
             remove(ref(db, '/iatc/course/main/' + this.dataset.key));
         }
     }
-})
+});

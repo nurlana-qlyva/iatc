@@ -81,4 +81,24 @@ onValue(eventsBranch, function(banner){
             remove(ref(db, '/iatc/events/' + this.dataset.key));
         }
     }
+
+    for(let [key, value] of Object.entries(objBanner)){
+        const div = $("<div>");
+            div.html(`
+            <div class="news-card">
+                <a href="#">
+                    <div class="body-card">
+                        <div class="image-card">
+                            <img src="${value.event_image}" class="card-img-top" alt="">
+                        </div>
+                        <div class="header-card">
+                            <h4>${value.event_header}</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    `       );
+            div.attr('class', 'col-md-4');
+            $('.data').append(div);
+    }
 })
