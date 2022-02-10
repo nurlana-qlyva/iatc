@@ -104,7 +104,7 @@ onValue(courseAboutBranch, function(banner){
         div.html(`
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-lg-8">
                         <div class="text-course">
                             <h3>${value.course_name}</h3>
                             <ul class="unstyled-list list-inline">
@@ -120,7 +120,7 @@ onValue(courseAboutBranch, function(banner){
                             <div>${value.course_info}</div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3">
+                    <div class="col-12 col-lg-4">
                         <div class="image-course">
                             <img src="${value.course_image}" alt="backend">
                         </div>
@@ -130,6 +130,10 @@ onValue(courseAboutBranch, function(banner){
         `)
 
         $(".about-course-section").append(div);
+
+        var divText = $("#text-summary");
+
+        divText.html(`${value.course_summary}`);
     }
 })
 
@@ -151,11 +155,10 @@ $('#courseAboutParticipantBtn').on('click', function(e){
 
 onValue(courseAboutParticipantBranch, function(banner){
     var objBanner = banner.val();
-    
-    var ul = document.querySelector('#participant');
-    ul.innerHTML = '';
 
     for(let [key,value] of Object.entries(objBanner)){
+        var ul = document.querySelector('#skill');
+
         var li = document.createElement('li');
         li.innerHTML = value.course_participant;
         li.classList.add('list-style');
@@ -175,6 +178,20 @@ onValue(courseAboutParticipantBranch, function(banner){
             remove(ref(db, '/iatc/course/about/backend/participants/' + this.dataset.key));
         }
     }
+
+})
+onValue(courseAboutParticipantBranch, function(snapshot){
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var li = $("<li>");
+
+        li.html(childData.course_participant);
+
+        $(".list-participant").append(li);
+      });
+    }, {
+      onlyOnce: true
 })
 
 // //course program
@@ -195,11 +212,10 @@ $('#courseAboutProgramBtn').on('click', function(e){
 
 onValue(courseAboutProgramBranch, function(banner){
     var objBanner = banner.val();
-    
-    var ul = document.querySelector('#program');
-    ul.innerHTML = '';
 
     for(let [key,value] of Object.entries(objBanner)){
+        var ul = document.querySelector('#skill');
+
         var li = document.createElement('li');
         li.innerHTML = value.course_program;
         li.classList.add('list-style');
@@ -221,6 +237,20 @@ onValue(courseAboutProgramBranch, function(banner){
     }
 })
 
+onValue(courseAboutProgramBranch, function(snapshot){
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var li = $("<li>");
+
+        li.html(childData.course_program);
+
+        $(".list-program").append(li);
+      });
+    }, {
+      onlyOnce: true
+})
+
 // //course skills
 
 const courseAboutSkillBranch = ref(db, '/iatc/course/about/backend/skill');
@@ -239,11 +269,10 @@ $('#courseAboutSkillBtn').on('click', function(e){
 
 onValue(courseAboutSkillBranch, function(banner){
     var objBanner = banner.val();
-    
-    var ul = document.querySelector('#skill');
-    ul.innerHTML = '';
 
     for(let [key,value] of Object.entries(objBanner)){
+        var ul = document.querySelector('#skill');
+
         var li = document.createElement('li');
         li.innerHTML = value.course_skill;
         li.classList.add('list-style');
@@ -263,6 +292,20 @@ onValue(courseAboutSkillBranch, function(banner){
             remove(ref(db, '/iatc/course/about/backend/skill/' + this.dataset.key));
         }
     }
+})
+
+onValue(courseAboutSkillBranch, function(snapshot){
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var li = $("<li>");
+
+        li.html(childData.course_skill);
+
+        $(".list-skill").append(li);
+      });
+    }, {
+      onlyOnce: true
 })
 
 // card information
@@ -293,8 +336,8 @@ $('#courseAboutCardBtn').on('click', function(e){
     });
 });
 
-onValue(courseAboutCardBranch, function(banner){
-    var objBanner = banner.val();
+onValue(courseAboutCardBranch, function(snapshot){
+    var objBanner = snapshot.val();
     
     var count = 0;
 
@@ -346,6 +389,45 @@ onValue(courseAboutCardBranch, function(banner){
             remove(ref(db, '/iatc/course/about/backend/card/' + this.dataset.key));
         }
     }
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var div = $("<div>");
+
+        div.html(`
+                <h4>Kurs Haqqında</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-user"></i> Student Enrolled:</span>
+                    <span>${value.student_num}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-note-sticky"></i> Lectures:</span>
+                    <span>${value.lecture_num}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-chess-pawn"></i> Quizzes:</span>
+                    <span>${value.quiz_num}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-bell"></i> Duration:</span>
+                    <span>${value.duration_num}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-brands fa-codepen"></i> Skill Level:</span>
+                    <span>${value.skill_level}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-bell"></i> Language:</span>
+                    <span>${value.language_select}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-regular fa-box-archive"></i> Assessment:</span>
+                    <span>${value.assesment_boolean}</span>
+                </div>
+        `)
+
+        $(".card-box").append(div);
+    }
+    
 })
 
 // about teacher
@@ -359,12 +441,14 @@ $('#courseAboutTeacherBtn').on('click', function(e){
     var image = $('#image').val();
     var experience = $('#experience').val();
     var info = $('#info').val();
+    var profession = $('#profession').val();
 
     var courseAboutTeacherArr = push(courseAboutTeacherBranch);
 
     set(courseAboutTeacherArr, {
         teacher,
         image,
+        profession,
         experience,
         info
     });
@@ -380,6 +464,7 @@ onValue(courseAboutTeacherBranch, function(banner){
 
         var teacherTd = document.createElement('td');
         var imageTd = document.createElement('td');
+        var professionTd = document.createElement('td');
         var experienceTd = document.createElement('td');
         var infoTd = document.createElement('td');
 
@@ -388,6 +473,7 @@ onValue(courseAboutTeacherBranch, function(banner){
 
         teacherTd.innerHTML = value.teacher;
         imageTd.innerHTML = value.image;
+        professionTd.innerHTML = value.profession;
         experienceTd.innerHTML = value.experience;
         infoTd.innerHTML = value.info;
 
@@ -402,6 +488,7 @@ onValue(courseAboutTeacherBranch, function(banner){
         tr.append(count);
         tr.append(teacherTd);
         tr.append(imageTd);
+        tr.append(professionTd);
         tr.append(experienceTd);
         tr.append(infoTd);
         tr.append(edit);
@@ -414,4 +501,48 @@ onValue(courseAboutTeacherBranch, function(banner){
             remove(ref(db, '/iatc/course/about/backend/teacher/' + this.dataset.key));
         }
     }
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var div = $("<div>");
+
+        div.html(`
+            <div class="col-12 col-lg-8">
+                <div class="teacher-content">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="image-teacher">
+                                <img src="${value.image}" alt="teacher">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="text">
+                                <h4>${value.teacher}</h4>
+                                <ul class="unstyled-list list-inline">
+                                    <li class="list-inline-item">${value.profession}</li>
+                                    <li class="list-inline-item">${value.experience}</li>
+                                </ul>
+                                <div class="teacher-about">${value.info}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+
+        div.attr('class', 'row');
+
+        $(".teacher-information").append(div);
+    }
 })
+
+// onValue(courseAboutTeacherBranch, function(snapshot){
+//     snapshot.forEach((childSnapshot) => {
+//         const childData = childSnapshot.val();
+
+        
+
+//         console.log(childData)
+//       });
+//     }, {
+//       onlyOnce: true
+// })

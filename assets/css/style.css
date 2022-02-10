@@ -88,7 +88,7 @@
 .banner, .breadcrump-page{
     padding: 126px 0 40px;
 }
-.more-btn a{
+.more-btn a, .asign-btn a{
     background-color: orange;
     border: 2px solid orange;
     color: #fff;
@@ -97,10 +97,10 @@
     font-weight: 600;
     transition: .8s ease;
 }
-.more-btn a i{
+.more-btn a i, .asign-btn a i{
     transition: 1s ease;
 }
-.more-btn a:hover{
+.more-btn a:hover, .asign-btn a:hover{
     text-decoration: none;
 }
 .more-btn{
@@ -108,7 +108,7 @@
     bottom: 152px;
     left: 100px;
 }
-.more-btn a:hover i{
+.more-btn a:hover i , .asign-btn a:hover i{
     transform: translateX(20px);
 }
 .slick-dots li button:before{
@@ -438,8 +438,10 @@
 }
 .breadcrump-page{
     padding: 160px 0 40px;
-    background: #f4f4f4 url(../image/banner-4.jpg);
+    background: #f4f4f4 url(../image/bg2.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
 }
 .context{
     color: #fff;
@@ -450,12 +452,12 @@
 .about-page-section, .about-course-section{
     padding: 80px 0;
 }
-.image-ourcourse, .image-course{
+.image-ourcourse, .image-course, .image-teacher{
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
-.image-ourcourse img, .image-course img{
+.image-ourcourse img, .image-course img, .image-teacher img{
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -477,4 +479,43 @@
 }
 .text-course li i, .text-course span, .text-course div{
     color: #192459;
+}
+.text-content, .card-box, .teacher-content{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    color: #192459;
+}
+.text-content ul li, #text-summary{
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: 400;
+}
+.section-course-parts{
+    padding: 40px 0;
+}
+.border{
+    background-color: #192459;
+    opacity: 0.4;
+    height: 1px;
+    width: 100%;
+    margin: 30px 0;
+}
+.asign-btn{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+.teacher-content{
+    margin: 20px 0 0;
+}
+.teacher-about{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
