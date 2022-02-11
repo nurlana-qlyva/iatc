@@ -71,6 +71,14 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="register.html">
+                                    <div class="d-inline">
+                                        <i class="fas fa-calendar-week"></i>
+                                        <span>Qeydiyyat</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="contact.html">
                                     <div class="d-inline">
                                         <i class="fas fa-file-contract"></i>
@@ -80,6 +88,9 @@
                             </li>
                         </ul>
                     </nav>
+                </div>
+                <div class="sign-out">
+                    <button type="button" id="logout">Sign Out</button>
                 </div>
             </div>
             <div class="main-content">
@@ -245,11 +256,11 @@
                                         </div>
                                         <div class="form-view">
                                             <label for="lang">Language</label>
-                                            <input type="text" name="lang" id="lang">
+                                            <input type="text" name="lang" id="language">
                                         </div>
                                         <div class="form-view">
-                                            <label for="assesment">Assesment</label>
-                                            <input type="text" name="assesment" id="assesment">
+                                            <label for="assesment">Assessment</label>
+                                            <input type="text" name="assesment" id="assessment">
                                         </div>
                                         <div class="btn-position">
                                             <button type="submit" id="courseAboutCardBtn">Add</button>
@@ -265,11 +276,11 @@
                                                 <th scope="col">Duration</th>
                                                 <th scope="col">Skill</th>
                                                 <th scope="col">Language</th>
-                                                <th scope="col">Assesment</th>
+                                                <th scope="col">Assessment</th>
                                                 <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="push-inner"></tbody>
+                                        <tbody id="push-card"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -318,7 +329,7 @@
                                                 <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="push-inner"></tbody>
+                                        <tbody id="push-teacher"></tbody>
                                     </table>
                                 </div>
                             </div>

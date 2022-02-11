@@ -79,7 +79,7 @@
                                 </li>
                                 <li class="has-submenu">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#">Haqqımızda</a>
+                                        <a href="./about.html">Haqqımızda</a>
                                         <button type="button" class="show-submenu">
                                             <i class="fa fa-chevron-right"></i>
                                         </button>
@@ -111,7 +111,7 @@
                                 </li>
                                 <li class="has-submenu">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#">Əlaqə</a>
+                                        <a href="./contact.html">Əlaqə</a>
                                         <button type="button" class="show-submenu">
                                             <i class="fa fa-chevron-right"></i>
                                         </button>
@@ -153,55 +153,46 @@
 
     <!-- main body -->
     <main>
-        <div class="breadcrump-page" data-overlay="9">
-            <div class="container">
-                <div class="context text-center">
-                    <h2>BackEnd</h2>
-                      <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="./index.html">Ana Səhifə</a></li>
-                          <li class="breadcrumb-item"><a href="#">Kurslarımız</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">BackEnd</li>
-                        </ol>
-                      </nav>
-                </div>
-            </div>
-        </div>
 
-        <!-- course -->
-        <section class="about-course-section"></section>
-
-        <section class="bg-section section-course-parts">
+        <section class="bg-section register-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <div class="text-content">
-                            <h4>Ümumi məlumat</h4>
-                            <div id="text-summary"></div>
-                            <div class="border"></div>
-                            <h4>İştirakçılar</h4>
-                            <ul class="unstyled-list list-participant"></ul>
-                            <div id="text-summary"></div>
-                            <div class="border"></div>
-                            <h4>Proqram</h4>
-                            <ul class="unstyled-list list-program"></ul>
-                            <div id="text-summary"></div>
-                            <div class="border"></div>
-                            <h4>Bacarıqlar</h4>
-                            <ul class="unstyled-list list-skill"></ul>
-                            <div id="text-summary"></div>
+                <div class="form">
+                    <form action="">
+                        <div class="form-view">
+                            <label for="program">Proqram</label>
+                            <input type="text" name="program" id="program-name">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="card-box"></div>
-                        <div class="asign-btn">
-                            <a href="./register.html">Qeydiyyat <i class="fa fa-solid fa-arrow-right"></i></a>
+                        <div class="form-view">
+                            <label for="user">Ad Soyad</label>
+                            <input type="text" name="user" id="user-name">
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-view">
+                                    <label for="number">Nömrə</label>
+                                    <input type="text" name="number" id="phone-number">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-view">
+                                    <label for="email">E-poçt</label>
+                                    <input type="text" name="email" id="email-address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-view">
+                            <label for="text">Özünüz haqqında qısa məlumat</label>
+                            <textarea name="text" id="about-user"></textarea>
+                        </div>
+                        <div id="sendBtn">
+                            <button type="submit" id="registerBtn">Göndər</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="teacher-information"></div>
             </div>
         </section>
+
+        
 
     </main>
 
@@ -250,6 +241,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script type="module" src="./assets/js/aboutcourse.js"></script>
+    <script type="module" src="./assets/js/register.js"></script>
 </body>
 </html>

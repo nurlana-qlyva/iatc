@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getDatabase, ref, set, push, onValue, update, remove, get} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyA_gpkpE4lcPVf2qVJhfrrsnmfDsK_WEj4",
@@ -18,7 +17,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export{ref, set, push, onValue, update, remove, get};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
-export { getFirestore };
 
 // kurslar barede melumarin daxil edilmesi ucun
 
@@ -320,8 +318,8 @@ $('#courseAboutCardBtn').on('click', function(e){
     var quiz = $('#quiz').val();
     var duration = $('#duration').val();
     var skill = $('#all-skill').val();
-    var language = $('#lang').val();
-    var assesment = $('#assesment').val();
+    var language = $('#language').val();
+    var assessment = $('#assessment').val();
 
     var courseAboutCardArr = push(courseAboutCardBranch);
 
@@ -332,16 +330,16 @@ $('#courseAboutCardBtn').on('click', function(e){
         duration_num: duration,
         skill_level: skill,
         language_select: language,
-        assesment_boolean: assesment,
+        assessment_boolean: assessment,
     });
 });
 
 onValue(courseAboutCardBranch, function(snapshot){
-    var objBanner = snapshot.val();
-    
+    var arr = snapshot.val();
     var count = 0;
 
-    for(let [key,value] of Object.entries(objBanner)){
+    console.log(arr.key)
+    for(var [key,value] of Object.entries(arr)){
         var tr = document.createElement('tr');
 
         var studentTd = document.createElement('td');
@@ -350,7 +348,7 @@ onValue(courseAboutCardBranch, function(snapshot){
         var durationTd = document.createElement('td');
         var skillTd = document.createElement('td');
         var languageTd = document.createElement('td');
-        var assesmentTd = document.createElement('td');
+        var assessmentTd = document.createElement('td');
 
         var edit = document.createElement('td');
         var tdcount = document.createElement('td');
@@ -361,7 +359,7 @@ onValue(courseAboutCardBranch, function(snapshot){
         durationTd.innerHTML = value.duration_num;
         skillTd.innerHTML = value.skill_level;
         languageTd.innerHTML = value.language_select;
-        assesmentTd.innerHTML = value.assesment_boolean;
+        assessmentTd.innerHTML = value.assessment_boolean;
 
         count++;
         tdcount.innerHTML = count;
@@ -378,10 +376,10 @@ onValue(courseAboutCardBranch, function(snapshot){
         tr.append(durationTd);
         tr.append(skillTd);
         tr.append(languageTd);
-        tr.append(assesmentTd);
+        tr.append(assessmentTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        $("#push-card").append(tr);
 
         edit.dataset.key = key;
 
@@ -389,45 +387,51 @@ onValue(courseAboutCardBranch, function(snapshot){
             remove(ref(db, '/iatc/course/about/backend/card/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutCardBranch, function(snapshot){
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
 
-    for(let [key,value] of Object.entries(objBanner)){
-        var div = $("<div>");
 
-        div.html(`
+        var div = document.createElement("div");
+
+        div.innerHTML = (`
                 <h4>Kurs Haqqında</h4>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-user"></i> Student Enrolled:</span>
-                    <span>${value.student_num}</span>
+                    <span>${childData.student_num}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-note-sticky"></i> Lectures:</span>
-                    <span>${value.lecture_num}</span>
+                    <span>${childData.lecture_num}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-chess-pawn"></i> Quizzes:</span>
-                    <span>${value.quiz_num}</span>
+                    <span>${childData.quiz_num}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-bell"></i> Duration:</span>
-                    <span>${value.duration_num}</span>
+                    <span>${childData.duration_num}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-brands fa-codepen"></i> Skill Level:</span>
-                    <span>${value.skill_level}</span>
+                    <span>${childData.skill_level}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-bell"></i> Language:</span>
-                    <span>${value.language_select}</span>
+                    <span>${childData.language_select}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><i class="fa-regular fa-box-archive"></i> Assessment:</span>
-                    <span>${value.assesment_boolean}</span>
+                    <span>${childData.assessment_boolean}</span>
                 </div>
         `)
 
+
         $(".card-box").append(div);
-    }
-    
+      });
+    }, {
+      onlyOnce: true
 })
 
 // about teacher
@@ -454,12 +458,12 @@ $('#courseAboutTeacherBtn').on('click', function(e){
     });
 });
 
-onValue(courseAboutTeacherBranch, function(banner){
-    var objBanner = banner.val();
+onValue(courseAboutTeacherBranch, function(snapshot){
+    let arr = snapshot.val();
     
     var count = 0;
 
-    for(let [key,value] of Object.entries(objBanner)){
+    for(let [key,value] of Object.entries(arr)){
         var tr = document.createElement('tr');
 
         var teacherTd = document.createElement('td');
@@ -493,7 +497,7 @@ onValue(courseAboutTeacherBranch, function(banner){
         tr.append(infoTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        $("#push-teacher").append(tr);
 
         edit.dataset.key = key;
 
@@ -502,7 +506,7 @@ onValue(courseAboutTeacherBranch, function(banner){
         }
     }
 
-    for(let [key,value] of Object.entries(objBanner)){
+    for(let [key, value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`

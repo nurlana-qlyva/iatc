@@ -22,55 +22,65 @@ export { getFirestore };
 
 // elaqe sehifesindeki melumarin daxil edilmesi ucun
 
-const contactBranch = ref(db, '/iatc/contact');
+const registerBranch = ref(db, '/iatc/register');
 
-$('#contactBtn').on('click', function(e){
+$('#registerBtn').on('click', function(e){
     e.preventDefault();
 
-    var contactAddress = $('#contact-address').val();
-    var emailAddress = $('#contact-email').val();
-    var phoneNumber = $('#contact-phone').val();
+    var programName = $('#program-name').val();
+    var userName = $('#user-name').val();
+    var phoneNumber = $('#phone-number').val();
+    var emailAddress = $('#email-address').val();
+    var aboutUser = $('#about-user').val();
 
-    var contactArr = push(contactBranch);
+    var registerArr = push(registerBranch);
 
-    set(contactArr, {
-        contact_address: contactAddress,
-        email_address: emailAddress,
+    set(registerArr, {
+        program_name: programName,
+        user_name: userName,
         phone_number: phoneNumber,
+        email_address: emailAddress,
+        about_user: aboutUser,
     });
 });
 
-onValue(contactBranch, function(banner){
-    var objBanner = banner.val();
+onValue(registerBranch, function(snapshot){
+    var objBanner = snapshot.val();
     
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
         var tr = document.createElement('tr');
 
-        var addressTd = document.createElement('td');
-        var emailTd = document.createElement('td');
+        var programTd = document.createElement('td');
+        var userTd = document.createElement('td');
         var phoneTd = document.createElement('td');
+        var emailTd = document.createElement('td');
+        var aboutTd = document.createElement('td');
 
         var edit = document.createElement('td');
         var tdcount = document.createElement('td');
 
-        addressTd.innerHTML = value.contact_address;
+        programTd.innerHTML = value.program_name;
+        userTd.innerHTML = value.user_name;
         emailTd.innerHTML = value.email_address;
         phoneTd.innerHTML = value.phone_number;
+        aboutTd.innerHTML = value.about_user;
 
         count++;
         tdcount.innerHTML = count;
 
-        addressTd.dataset.key = key;
+        userTd.dataset.key = key;
 
         edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
         edit.classList.add('delete-btn');
 
         tr.append(count);
-        tr.append(addressTd);
+        tr.append(programTd);
+        tr.append(userTd);
         tr.append(emailTd);
         tr.append(phoneTd);
+        tr.append(aboutTd);
         tr.append(edit);
 
         $("#push-inner").append(tr);
@@ -80,43 +90,5 @@ onValue(contactBranch, function(banner){
         edit.onclick = function(){
             remove(ref(db, '/iatc/contact/' + this.dataset.key));
         }
-    }
-
-    for( let [key, value] of Object.entries(objBanner)){
-        var div = $("<div>");
-
-        div.html(`
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
-                        <i class="fa-solid fa-house-chimney"></i>
-                        <div>
-                            <h4>Ünvan:</h4>
-                            <p>${value.contact_address}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <h4>E-Mail:</h4>
-                            <p>${value.email_address}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                        <div>
-                            <h4>Telefon:</h4>
-                            <p>${value.phone_number}</p>
-                        </div>
-                    </div>
-                </div>
-        `)
-
-        div.attr('class', 'row');
-
-        $(".contact-section").append(div);
     }
 });
