@@ -21,19 +21,19 @@ export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, on
 
 // kurslar barede melumarin daxil edilmesi ucun
 
-const courseAboutBranch = ref(db, '/iatc/course/about/backend/aboutCourse');
+const courseAboutFrontBranch = ref(db, '/iatc/course/about/Front/aboutCourse');
 
-$('#courseAboutBackendBtn').on('click', function(e){
+$('#courseAboutFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var courseName = $('#course-name').val();
-    var courseTerm = $('#course-term').val();
-    var courseStudent = $('#course-student').val();
-    var courseImage = $('#course-image').val();
-    var courseInfo = $('#course-info').val();
-    var courseSummary = $('#course-about-text').val();
+    var courseName = $('#course-nameFront').val();
+    var courseTerm = $('#course-termFront').val();
+    var courseStudent = $('#course-studentFront').val();
+    var courseImage = $('#course-imageFront').val();
+    var courseInfo = $('#course-infoFront').val();
+    var courseSummary = $('#course-about-textFront').val();
 
-    var courseAboutArr = push(courseAboutBranch);
+    var courseAboutArr = push(courseAboutFrontBranch);
 
     set(courseAboutArr, {
         course_name: courseName,
@@ -45,7 +45,7 @@ $('#courseAboutBackendBtn').on('click', function(e){
     });
 });
 
-onValue(courseAboutBranch, function(banner){
+onValue(courseAboutFrontBranch, function(banner){
     var objBanner = banner.val();
     
     var count = 0;
@@ -88,12 +88,12 @@ onValue(courseAboutBranch, function(banner){
         tr.append(summaryTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        $("#push-innerFront").append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/aboutCourse/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/aboutCourse/' + this.dataset.key));
         }
     }
 
@@ -121,7 +121,7 @@ onValue(courseAboutBranch, function(banner){
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="image-course">
-                            <img src="${value.course_image}" alt="backend">
+                            <img src="${value.course_image}" alt="front">
                         </div>
                     </div>
                 </div>
@@ -138,25 +138,25 @@ onValue(courseAboutBranch, function(banner){
 
 // //course participant
 
-const courseAboutParticipantBranch = ref(db, '/iatc/course/about/backend/participants');
+const courseAboutParticipantFrontBranch = ref(db, '/iatc/course/about/Front/participants');
 
-$('#courseAboutParticipantBackendBtn').on('click', function(e){
+$('#courseAboutParticipantFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var courseParticipant = $('#course-participant').val();
+    var courseParticipant = $('#course-participantFront').val();
 
-    var courseAboutParticipantArr = push(courseAboutParticipantBranch);
+    var courseAboutParticipantFrontArr = push(courseAboutParticipantFrontBranch);
 
-    set(courseAboutParticipantArr, {
+    set(courseAboutParticipantFrontArr, {
        course_participant: courseParticipant,
     });
 });
 
-onValue(courseAboutParticipantBranch, function(banner){
+onValue(courseAboutParticipantFrontBranch, function(banner){
     var objBanner = banner.val();
 
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skill');
+        var ul = document.querySelector('#participantFront');
 
         var li = document.createElement('li');
         li.innerHTML = value.course_participant;
@@ -174,12 +174,12 @@ onValue(courseAboutParticipantBranch, function(banner){
         deleteList.dataset.key = key;
 
         deleteList.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/participants/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/participants/' + this.dataset.key));
         }
     }
 
 })
-onValue(courseAboutParticipantBranch, function(snapshot){
+onValue(courseAboutParticipantFrontBranch, function(snapshot){
     snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
 
@@ -195,25 +195,25 @@ onValue(courseAboutParticipantBranch, function(snapshot){
 
 // //course program
 
-const courseAboutProgramBranch = ref(db, '/iatc/course/about/backend/program');
+const courseAboutProgramFrontBranch = ref(db, '/iatc/course/about/Front/program');
 
-$('#courseAboutProgramBackendBtn').on('click', function(e){
+$('#courseAboutProgramFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var courseProgram = $('#course-program').val();
+    var courseProgram = $('#course-programFront').val();
 
-    var courseAboutProgramArr = push(courseAboutProgramBranch);
+    var courseAboutProgramFrontArr = push(courseAboutProgramFrontBranch);
 
-    set(courseAboutProgramArr, {
+    set(courseAboutProgramFrontArr, {
        course_program: courseProgram,
     });
 });
 
-onValue(courseAboutProgramBranch, function(banner){
+onValue(courseAboutProgramFrontBranch, function(banner){
     var objBanner = banner.val();
 
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#program');
+        var ul = document.querySelector('#programFront');
 
         var li = document.createElement('li');
         li.innerHTML = value.course_program;
@@ -231,12 +231,12 @@ onValue(courseAboutProgramBranch, function(banner){
         deleteList.dataset.key = key;
 
         deleteList.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/program/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/program/' + this.dataset.key));
         }
     }
 })
 
-onValue(courseAboutProgramBranch, function(snapshot){
+onValue(courseAboutProgramFrontBranch, function(snapshot){
     snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
 
@@ -252,25 +252,25 @@ onValue(courseAboutProgramBranch, function(snapshot){
 
 // //course skills
 
-const courseAboutSkillBranch = ref(db, '/iatc/course/about/backend/skill');
+const courseAboutSkillFrontBranch = ref(db, '/iatc/course/about/Front/skill');
 
-$('#courseAboutSkillBackendBtn').on('click', function(e){
+$('#courseAboutSkillFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var courseSkill = $('#course-skill').val();
+    var courseSkill = $('#course-skillFront').val();
 
-    var courseAboutSkillArr = push(courseAboutSkillBranch);
+    var courseAboutSkillArr = push(courseAboutSkillFrontBranch);
 
     set(courseAboutSkillArr, {
        course_skill: courseSkill,
     });
 });
 
-onValue(courseAboutSkillBranch, function(banner){
+onValue(courseAboutSkillFrontBranch, function(banner){
     var objBanner = banner.val();
 
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skill');
+        var ul = document.querySelector('#skillFront');
 
         var li = document.createElement('li');
         li.innerHTML = value.course_skill;
@@ -288,12 +288,12 @@ onValue(courseAboutSkillBranch, function(banner){
         deleteList.dataset.key = key;
 
         deleteList.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/skill/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/skill/' + this.dataset.key));
         }
     }
 })
 
-onValue(courseAboutSkillBranch, function(snapshot){
+onValue(courseAboutSkillFrontBranch, function(snapshot){
     snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
 
@@ -309,20 +309,20 @@ onValue(courseAboutSkillBranch, function(snapshot){
 
 // card information
 
-const courseAboutCardBranch = ref(db, '/iatc/course/about/backend/card');
+const courseAboutCardFrontBranch = ref(db, '/iatc/course/about/Front/card');
 
-$('#courseAboutCardBackendBtn').on('click', function(e){
+$('#courseAboutCardFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var studentNum = $('#all-student').val();
-    var lectures = $('#lectures').val();
-    var quiz = $('#quiz').val();
-    var duration = $('#duration').val();
-    var skill = $('#all-skill').val();
-    var language = $('#language').val();
-    var assessment = $('#assessment').val();
+    var studentNum = $('#all-studentFront').val();
+    var lectures = $('#lecturesFront').val();
+    var quiz = $('#quizFront').val();
+    var duration = $('#durationFront').val();
+    var skill = $('#all-skillFront').val();
+    var language = $('#languageFront').val();
+    var assessment = $('#assessmentFront').val();
 
-    var courseAboutCardArr = push(courseAboutCardBranch);
+    var courseAboutCardArr = push(courseAboutCardFrontBranch);
 
     set(courseAboutCardArr, {
         student_num_card: studentNum,
@@ -335,7 +335,7 @@ $('#courseAboutCardBackendBtn').on('click', function(e){
     });
 });
 
-onValue(courseAboutCardBranch, function(snapshot){
+onValue(courseAboutCardFrontBranch, function(snapshot){
     var arr = snapshot.val();
     var count = 0;
 
@@ -379,16 +379,16 @@ onValue(courseAboutCardBranch, function(snapshot){
         tr.append(assessmentTd);
         tr.append(edit);
 
-        $("#push-card").append(tr);
+        $("#push-cardFront").append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/card/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/card/' + this.dataset.key));
         }
     }
 })
-onValue(courseAboutCardBranch, function(snapshot){
+onValue(courseAboutCardFrontBranch, function(snapshot){
     snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
 
@@ -436,18 +436,18 @@ onValue(courseAboutCardBranch, function(snapshot){
 
 // about teacher
 
-const courseAboutTeacherBranch = ref(db, '/iatc/course/about/backend/teacher');
+const courseAboutTeacherFrontBranch = ref(db, '/iatc/course/about/Front/teacher');
 
-$('#courseAboutTeacherBackendBtn').on('click', function(e){
+$('#courseAboutTeacherFrontBtn').on('click', function(e){
     e.preventDefault();
 
-    var teacher = $('#teacher').val();
-    var image = $('#image').val();
-    var experience = $('#experience').val();
-    var info = $('#info').val();
-    var profession = $('#profession').val();
+    var teacher = $('#teacherFront').val();
+    var image = $('#imageFront').val();
+    var experience = $('#experienceFront').val();
+    var info = $('#infoFront').val();
+    var profession = $('#professionFront').val();
 
-    var courseAboutTeacherArr = push(courseAboutTeacherBranch);
+    var courseAboutTeacherArr = push(courseAboutTeacherFrontBranch);
 
     set(courseAboutTeacherArr, {
         teacher,
@@ -458,7 +458,7 @@ $('#courseAboutTeacherBackendBtn').on('click', function(e){
     });
 });
 
-onValue(courseAboutTeacherBranch, function(snapshot){
+onValue(courseAboutTeacherFrontBranch, function(snapshot){
     let arr = snapshot.val();
     
     var count = 0;
@@ -497,12 +497,12 @@ onValue(courseAboutTeacherBranch, function(snapshot){
         tr.append(infoTd);
         tr.append(edit);
 
-        $("#push-teacher").append(tr);
+        $("#push-teacherFront").append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
-            remove(ref(db, '/iatc/course/about/backend/teacher/' + this.dataset.key));
+            remove(ref(db, '/iatc/course/about/Front/teacher/' + this.dataset.key));
         }
     }
 

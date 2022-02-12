@@ -20,8 +20,6 @@ export{ref, set, push, onValue, update, remove, get};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 export { getFirestore }; 
 
-//Home page
-
 // banner sekiller ucun
 
 var homeBannerBranch = ref(db, '/iatc/home/banner');
@@ -39,7 +37,6 @@ onValue(homeBannerBranch, function(banner){
     var objBanner = banner.val();
 
     var ul = document.querySelector('#banner-image-list');
-    ul.innerHTML = '';
 
     for(let [key,image] of Object.entries(objBanner)){
         var li = document.createElement('li');
@@ -58,21 +55,39 @@ onValue(homeBannerBranch, function(banner){
         deleteList.onclick = function(){
             remove(ref(db, '/iatc/home/banner/' + this.dataset.key));
         }
+
+        console.log(image)
+        
     }
-    // for(let [key,image] of Object.entries(objBanner)){
-    //         const div = $("<div>");
-    //         console.log(image)
-    //         div.html(`
-    //             <img src="${image.banner_image}" alt="banner">
-    //             <div class="more-btn">
-    //             <a href="#">Ətraflı
-    //                     <i class="fa fa-solid fa-arrow-right"></i>
-    //                 </a>
-    //             </div>
-    //         `);
-    //         div.attr('class', 'banner-img');
-    //         $('.banner-view').append(div);
-    // }
+})
+onValue(ref(db, '/iatc/home/banner'), function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var div = $("<div>");
+
+        div.html(`
+            <img src="${childData.banner_image}" alt="banner">
+            <div class="more-btn">
+                <a href="#">Ətraflı
+                        <i class="fa fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        `);
+
+        div.attr('class', 'banner-img');
+
+        $(".banner-slider").append(div);
+    });
+
+    $('.banner-slider').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: true,
+    });
+}, {
+    onlyOnce: true
 })
 
 //terefdas sirketlerin logosu ucun
@@ -112,6 +127,56 @@ onValue(homePartnersBranch, function(banner){
             remove(ref(db, '/iatc/home/partnership/' + this.dataset.key));
         }
     }
+})
+onValue(homePartnersBranch, function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var div = $("<div>");
+
+        div.html(`
+            <img src="${childData.partnership_image}" alt="partner">
+        `);
+
+        div.attr('class', 'partner-image');
+
+        $(".partner-slider").append(div);
+    });
+
+    $('.partner-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        accessibility: true,
+        autoplay: true,
+        dots: true,
+        autoplaySpeed: 1000,
+        responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1008,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+    })
+}, {
+    onlyOnce: true
 })
 
 //merkezin sosial sebeke accountlari ucun linkler

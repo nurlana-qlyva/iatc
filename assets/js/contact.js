@@ -115,7 +115,7 @@ onValue(contactBranch, function(banner){
                 </div>
         `)
 
-        div.attr('class', 'row');
+        div.attr('class', 'row contact');
 
         $(".contact-section").append(div);
     }

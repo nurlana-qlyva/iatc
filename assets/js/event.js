@@ -82,17 +82,18 @@ onValue(eventsBranch, function(banner){
         }
     }
 
+
     for(let [key, value] of Object.entries(objBanner)){
         const div = $("<div>");
             div.html(`
                 <div class="news-card">
-                    <a href="#">
+                    <a href="./eventpage.html" class="pageLink" dataset-count="${key}">
                         <div class="body-card">
                             <div class="image-card">
-                                <img src="${value.event_image}" class="card-img-top" alt="">
+                                <img src="${value.event_image}" data-image = "${key}" class="card-img-top" alt="">
                             </div>
                             <div class="header-card">
-                                <h4>${value.event_header}</h5>
+                                <h4 dataset-header="${key}">${value.event_header}</h5>
                             </div>
                         </div>
                     </a>
@@ -100,5 +101,45 @@ onValue(eventsBranch, function(banner){
     `       );
             div.attr('class', 'col-md-4');
             $('.data').append(div);
+    }
+    
+}) 
+
+
+onValue(eventsBranch, function (snapshot) {
+    var arr = snapshot.val();
+
+    var setKey;
+    $(".card-img-top").on('click',function(){
+        setKey = $(this).attr('data-image');
+        localStorage.setItem("key", setKey)
+    })
+
+    var getKey = localStorage.getItem('key', setKey)
+    console.log(getKey)  
+
+    for(let [key, value] of Object.entries(arr)){
+
+       
+        var pageDiv = $(".event-page");
+        localStorage.getItem('key', getKey)
+
+
+        if(getKey === key){
+            pageDiv.html(`
+                <h2 id="header">${value.event_header}</h2>
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-lg-4">
+                        <div class="event-image">
+                            <img src="${value.event_image}" alt="event" class="page-image" datakey="${key}">
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <div class="event-text">${value.event_text}</div>
+                    </div>
+                </div>
+            `)
+        }
+
     }
 })

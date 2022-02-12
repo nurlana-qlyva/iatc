@@ -223,7 +223,6 @@
 }
 .about-member a{
     color: #192459;
-    transition: 1s ease;
 }
 .about-member a:hover, .account-iatc li a:hover{
     text-decoration: none;
@@ -306,7 +305,6 @@
 }
 .account-iatc a{
     color: #fff;
-    transition: 1s ease;
 }
 .footer span{
     font-size: 12px;
@@ -525,6 +523,7 @@
 .contact-section i{
     font-size: 24px;
     color: orange;
+    margin-top: 4px;
 }
 .contact-section p{
     margin-left: 10px;
@@ -561,4 +560,52 @@
 #sendBtn button:hover{
     background-color: orange;
     color: #fff;
+}
+.contact{
+    margin: 40px 0;
+}
+.account-iatc a i, .about-member a i{
+    transition: 1s ease;
+}
+.account-iatc a:hover i, .about-member a:hover i{
+    transform: scale(1.5);
+}
+.all-btn a{
+    background-color: orange;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid orange;
+    box-sizing: border-box;
+    transition: .7s ease;
+}
+.all-btn a:hover{
+    text-decoration: none;
+}
+.all-btn{
+    text-align: center;
+    margin-top: 40px;
+}
+.event-image{
+    width: 100%;
+    height: 300px;
+}
+.event-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.event-page{
+    color: #192459;
+    text-align: center;
+}
+.event-text{
+    text-align: justify;
+}
+.event-page h2{
+    margin-bottom: 30px;
 }

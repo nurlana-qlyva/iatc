@@ -95,29 +95,29 @@
             </div>
             <div class="main-content">
                 <div class="aboutPage">
-                    <h2>Pages</h2>
+                    <h2>Course</h2>
                     <form action="">
-                        <label for="page"></label>
-                        <input type="text" name="page" id="page">
+                        <label for="page">Add New Course</label>
+                        <input type="text" name="page" id="course-page-name">
                         <div class="btn-position">
                             <button type="submit" id="addPageBtn">Add</button>
                         </div>
                     </form>
-                    <h3>BackEnd</h3>
+                    <div class="course-pagebtn"></div>
                     <p class="collapse-btn">
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Parts
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend" role="button" aria-expanded="false" aria-controls="collapseBackend">
+                          BackEnd
                         </a>
                     </p>
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse" id="collapseBackend">
                         <div class="card card-body added-pages">
                             <h4>About</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend1" role="button" aria-expanded="false" aria-controls="collapseBackend1">
                                   Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample1">
+                            <div class="collapse" id="collapseBackend1">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -145,7 +145,7 @@
                                             <textarea name="course-about" id="course-about-text"></textarea>
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutBtn">Add</button>
+                                            <button type="submit" id="courseAboutBackendBtn">Add</button>
                                         </div>
                                     </form>
                                     <table class="table admin-table">
@@ -167,11 +167,11 @@
                             </div>
                             <h4>Participants</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend2" role="button" aria-expanded="false" aria-controls="collapseBackend2">
                                     Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample2">
+                            <div class="collapse" id="collapseBackend2">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -179,7 +179,7 @@
                                             <input type="text" name="participant" id="course-participant">
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutParticipantBtn">Add</button>
+                                            <button type="submit" id="courseAboutParticipantBackendBtn">Add</button>
                                         </div>
                                         <ul id="participant" class="unstyled-list inline-list"></ul>
                                     </form>
@@ -187,11 +187,11 @@
                             </div>
                             <h4>Program</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend3" role="button" aria-expanded="false" aria-controls="collapseBackend3">
                                     Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample3">
+                            <div class="collapse" id="collapseBackend3">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -199,7 +199,7 @@
                                             <input type="text" name="program" id="course-program">
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutProgramBtn">Add</button>
+                                            <button type="submit" id="courseAboutProgramBackendBtn">Add</button>
                                         </div>
                                         <ul id="program" class="unstyled-list inline-list"></ul>
                                     </form>
@@ -207,11 +207,11 @@
                             </div>
                             <h4>Skills</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend4" role="button" aria-expanded="false" aria-controls="collapseBackend4">
                                     Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample4">
+                            <div class="collapse" id="collapseBackend4">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -219,7 +219,7 @@
                                             <input type="text" name="skill" id="course-skill">
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutSkillBtn">Add</button>
+                                            <button type="submit" id="courseAboutSkillBackendBtn">Add</button>
                                         </div>
                                         <ul id="skill" class="unstyled-list inline-list"></ul>
                                     </form>
@@ -227,11 +227,11 @@
                             </div>
                             <h4>About Card</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample5">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend5" role="button" aria-expanded="false" aria-controls="collapseBackend5">
                                     Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample5">
+                            <div class="collapse" id="collapseBackend5">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -263,7 +263,7 @@
                                             <input type="text" name="assesment" id="assessment">
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutCardBtn">Add</button>
+                                            <button type="submit" id="courseAboutCardBackendBtn">Add</button>
                                         </div>
                                     </form>
                                     <table class="table admin-table">
@@ -286,11 +286,11 @@
                             </div>
                             <h4>About Teacher</h4>
                             <p class="collapse-btn">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample6">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseBackend6" role="button" aria-expanded="false" aria-controls="collapseBackend6">
                                     Open Down
                                 </a>
                             </p>
-                            <div class="collapse" id="collapseExample6">
+                            <div class="collapse" id="collapseBackend6">
                                 <div class="card card-body added-pages-inner">
                                     <form action="">
                                         <div class="form-view">
@@ -314,7 +314,7 @@
                                             <textarea type="text" name="info" id="info"></textarea>
                                         </div>
                                         <div class="btn-position">
-                                            <button type="submit" id="courseAboutTeacherBtn">Add</button>
+                                            <button type="submit" id="courseAboutTeacherBackendBtn">Add</button>
                                         </div>
                                     </form>
                                     <table class="table admin-table">
@@ -335,6 +335,702 @@
                             </div>
                         </div>
                     </div>
+                    <!-- front -->
+                    <p class="collapse-btn">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront" role="button" aria-expanded="false" aria-controls="collapseFront">
+                          FrontEnd
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseFront">
+                        <div class="card card-body added-pages">
+                            <h4>About</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront1" role="button" aria-expanded="false" aria-controls="collapseFront1">
+                                  Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront1">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="course">Course Name</label>
+                                            <input type="text" name="course" id="course-nameFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="term">Term</label>
+                                            <input type="text" name="term" id="course-termFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="student">Student</label>
+                                            <input type="text" name="student" id="course-studentFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="course-imageFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-info">Short İnformation</label>
+                                            <textarea name="course-info" id="course-infoFront"></textarea>
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-about">About Course</label>
+                                            <textarea name="course-about" id="course-about-textFront"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutFrontBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Term</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Short Info</th>
+                                                <th scope="col">Summary</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-innerFront"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>Participants</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront2" role="button" aria-expanded="false" aria-controls="collapseFront2">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront2">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="participant">Participants List</label>
+                                            <input type="text" name="participant" id="course-participantFront">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutParticipantFrontBtn">Add</button>
+                                        </div>
+                                        <ul id="participantFront" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Program</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront3" role="button" aria-expanded="false" aria-controls="collapseFront3">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront3">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="program">Program List</label>
+                                            <input type="text" name="program" id="course-programFront">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutProgramFrontBtn">Add</button>
+                                        </div>
+                                        <ul id="programFront" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Skills</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront4" role="button" aria-expanded="false" aria-controls="collapseFront4">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront4">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="skill">Skills List</label>
+                                            <input type="text" name="skill" id="course-skillFront">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutSkillFrontBtn">Add</button>
+                                        </div>
+                                        <ul id="skillFront" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>About Card</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront5" role="button" aria-expanded="false" aria-controls="collapseFront5">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront5">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="student-ab">Student</label>
+                                            <input type="text" name="student-ab" id="all-studentFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lectures">Lectures</label>
+                                            <input type="text" name="lectures" id="lecturesFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="quiz">Quizzes</label>
+                                            <input type="text" name="quiz" id="quizFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="duration">Duration</label>
+                                            <input type="text" name="duration" id="durationFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="skill">Skill</label>
+                                            <input type="text" name="skill" id="all-skillFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lang">Language</label>
+                                            <input type="text" name="lang" id="languageFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="assesment">Assessment</label>
+                                            <input type="text" name="assesment" id="assessmentFront">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutCardFrontBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Lectures</th>
+                                                <th scope="col">Quizzes</th>
+                                                <th scope="col">Duration</th>
+                                                <th scope="col">Skill</th>
+                                                <th scope="col">Language</th>
+                                                <th scope="col">Assessment</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-cardFront"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>About Teacher</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFront6" role="button" aria-expanded="false" aria-controls="collapseFront6">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFront6">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="teacher">Teacher</label>
+                                            <input type="text" name="teacher" id="teacherFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="imageFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="profession">Profession</label>
+                                            <input type="text" name="profession" id="professionFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="experience">Experience</label>
+                                            <input type="text" name="experience" id="experienceFront">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="info">Info</label>
+                                            <textarea type="text" name="info" id="infoFront"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutTeacherFrontBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Teacher</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Profession</th>
+                                                <th scope="col">Experience</th>
+                                                <th scope="col">Info</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-teacherFront"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- design -->
+                    <p class="collapse-btn">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign" role="button" aria-expanded="false" aria-controls="collapseDesign">
+                          Uİ/UX Design
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseDesign">
+                        <div class="card card-body added-pages">
+                            <h4>About</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign1" role="button" aria-expanded="false" aria-controls="collapseDesign1">
+                                  Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign1">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="course">Course Name</label>
+                                            <input type="text" name="course" id="course-nameDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="term">Term</label>
+                                            <input type="text" name="term" id="course-termDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="student">Student</label>
+                                            <input type="text" name="student" id="course-studentDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="course-imageDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-info">Short İnformation</label>
+                                            <textarea name="course-info" id="course-infoDesign"></textarea>
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-about">About Course</label>
+                                            <textarea name="course-about" id="course-about-textDesign"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutDesignBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Term</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Short Info</th>
+                                                <th scope="col">Summary</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-innerDesign"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>Participants</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign2" role="button" aria-expanded="false" aria-controls="collapseDesign2">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign2">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="participant">Participants List</label>
+                                            <input type="text" name="participant" id="course-participantDesign">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutParticipantDesignBtn">Add</button>
+                                        </div>
+                                        <ul id="participantDesign" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Program</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign3" role="button" aria-expanded="false" aria-controls="collapseDesign3">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign3">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="program">Program List</label>
+                                            <input type="text" name="program" id="course-programDesign">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutProgramDesignBtn">Add</button>
+                                        </div>
+                                        <ul id="programDesign" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Skills</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign4" role="button" aria-expanded="false" aria-controls="collapseDesign4">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign4">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="skill">Skills List</label>
+                                            <input type="text" name="skill" id="course-skillDesign">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutSkillDesignBtn">Add</button>
+                                        </div>
+                                        <ul id="skillDesign" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>About Card</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign5" role="button" aria-expanded="false" aria-controls="collapseDesign5">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign5">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="student-ab">Student</label>
+                                            <input type="text" name="student-ab" id="all-studentDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lectures">Lectures</label>
+                                            <input type="text" name="lectures" id="lecturesDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="quiz">Quizzes</label>
+                                            <input type="text" name="quiz" id="quizDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="duration">Duration</label>
+                                            <input type="text" name="duration" id="durationDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="skill">Skill</label>
+                                            <input type="text" name="skill" id="all-skillDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lang">Language</label>
+                                            <input type="text" name="lang" id="languageDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="assesment">Assessment</label>
+                                            <input type="text" name="assesment" id="assessmentDesign">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutCardDesignBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Lectures</th>
+                                                <th scope="col">Quizzes</th>
+                                                <th scope="col">Duration</th>
+                                                <th scope="col">Skill</th>
+                                                <th scope="col">Language</th>
+                                                <th scope="col">Assessment</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-cardDesign"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>About Teacher</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseDesign6" role="button" aria-expanded="false" aria-controls="collapseDesign6">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseDesign6">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="teacher">Teacher</label>
+                                            <input type="text" name="teacher" id="teacherDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="imageDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="profession">Profession</label>
+                                            <input type="text" name="profession" id="professionDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="experience">Experience</label>
+                                            <input type="text" name="experience" id="experienceDesign">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="info">Info</label>
+                                            <textarea type="text" name="info" id="infoDesign"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutTeacherDesignBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Teacher</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Profession</th>
+                                                <th scope="col">Experience</th>
+                                                <th scope="col">Info</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-teacherDesign"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- full stack -->
+                    <p class="collapse-btn">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull" role="button" aria-expanded="false" aria-controls="collapseFull">
+                          Full Stack
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseFull">
+                        <div class="card card-body added-pages">
+                            <h4>About</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull1" role="button" aria-expanded="false" aria-controls="collapseFull1">
+                                  Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull1">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="course">Course Name</label>
+                                            <input type="text" name="course" id="course-nameFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="term">Term</label>
+                                            <input type="text" name="term" id="course-termFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="student">Student</label>
+                                            <input type="text" name="student" id="course-studentFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="course-imageFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-info">Short İnformation</label>
+                                            <textarea name="course-info" id="course-infoFull"></textarea>
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="course-about">About Course</label>
+                                            <textarea name="course-about" id="course-about-textFull"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutFullBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Term</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Short Info</th>
+                                                <th scope="col">Summary</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-innerFull"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>Participants</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull2" role="button" aria-expanded="false" aria-controls="collapseFull2">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull2">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="participant">Participants List</label>
+                                            <input type="text" name="participant" id="course-participantFull">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutParticipantFullBtn">Add</button>
+                                        </div>
+                                        <ul id="participantFull" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Program</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull3" role="button" aria-expanded="false" aria-controls="collapseFull3">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull3">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="program">Program List</label>
+                                            <input type="text" name="program" id="course-programFull">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutProgramFullBtn">Add</button>
+                                        </div>
+                                        <ul id="programFull" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>Skills</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull4" role="button" aria-expanded="false" aria-controls="collapseFull4">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull4">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="skill">Skills List</label>
+                                            <input type="text" name="skill" id="course-skillFull">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutSkillFullBtn">Add</button>
+                                        </div>
+                                        <ul id="skillFull" class="unstyled-list inline-list"></ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4>About Card</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull5" role="button" aria-expanded="false" aria-controls="collapseFull5">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull5">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="student-ab">Student</label>
+                                            <input type="text" name="student-ab" id="all-studentFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lectures">Lectures</label>
+                                            <input type="text" name="lectures" id="lecturesFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="quiz">Quizzes</label>
+                                            <input type="text" name="quiz" id="quizFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="duration">Duration</label>
+                                            <input type="text" name="duration" id="durationFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="skill">Skill</label>
+                                            <input type="text" name="skill" id="all-skillFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="lang">Language</label>
+                                            <input type="text" name="lang" id="languageFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="assesment">Assessment</label>
+                                            <input type="text" name="assesment" id="assessmentFull">
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutCardFullBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Student</th>
+                                                <th scope="col">Lectures</th>
+                                                <th scope="col">Quizzes</th>
+                                                <th scope="col">Duration</th>
+                                                <th scope="col">Skill</th>
+                                                <th scope="col">Language</th>
+                                                <th scope="col">Assessment</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-cardFull"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h4>About Teacher</h4>
+                            <p class="collapse-btn">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseFull6" role="button" aria-expanded="false" aria-controls="collapseFull6">
+                                    Open Down
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseFull6">
+                                <div class="card card-body added-pages-inner">
+                                    <form action="">
+                                        <div class="form-view">
+                                            <label for="teacher">Teacher</label>
+                                            <input type="text" name="teacher" id="teacherFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="image">Image</label>
+                                            <input type="text" name="image" id="imageFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="profession">Profession</label>
+                                            <input type="text" name="profession" id="professionFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="experience">Experience</label>
+                                            <input type="text" name="experience" id="experienceFull">
+                                        </div>
+                                        <div class="form-view">
+                                            <label for="info">Info</label>
+                                            <textarea type="text" name="info" id="infoFull"></textarea>
+                                        </div>
+                                        <div class="btn-position">
+                                            <button type="submit" id="courseAboutTeacherFullBtn">Add</button>
+                                        </div>
+                                    </form>
+                                    <table class="table admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Teacher</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Profession</th>
+                                                <th scope="col">Experience</th>
+                                                <th scope="col">Info</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="push-teacherFull"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -342,5 +1038,10 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
         <script type="module" src="../assets/js/aboutcourse.js"></script>
+        <script type="module" src="../assets/js/front.js"></script>
+        <script type="module" src="../assets/js/design.js"></script>
+        <script type="module" src="../assets/js/full.js"></script>
+
+
     </body>
 </html>

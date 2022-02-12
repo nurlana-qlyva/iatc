@@ -30,6 +30,7 @@ $('#courseBtn').on('click', function(e){
     var courseName = $('#course-name').val();
     var courseİmage = $('#course-image').val();
     var teacherName = $('#course-teacher').val();
+    var pageUrl = $('#course-page-url').val();
     var courseTerm = $('#course-term').val();
     var courseStudentNumber = $('#course-student').val();
 
@@ -39,6 +40,7 @@ $('#courseBtn').on('click', function(e){
         course_name: courseName,
         course_image: courseİmage,
         teacher_name: teacherName,
+        page_url: pageUrl,
         course_term: courseTerm,
         student_number: courseStudentNumber,
     });
@@ -55,6 +57,7 @@ onValue(courseBranch, function(banner){
         var nameTd = document.createElement('td');
         var teacherTd = document.createElement('td');
         var imageTd = document.createElement('td');
+        var urlTd = document.createElement('td');
         var termTd = document.createElement('td');
         var numStudentTd = document.createElement('td');
 
@@ -64,6 +67,7 @@ onValue(courseBranch, function(banner){
         nameTd.innerHTML = value.course_name;
         teacherTd.innerHTML = value.teacher_name;
         imageTd.innerHTML = value.course_image;
+        urlTd.innerHTML = value.page_url;
         termTd.innerHTML = value.course_term;
         numStudentTd.innerHTML = value.student_number;
 
@@ -79,6 +83,7 @@ onValue(courseBranch, function(banner){
         tr.append(nameTd);
         tr.append(teacherTd);
         tr.append(imageTd);
+        tr.append(urlTd);
         tr.append(termTd);
         tr.append(numStudentTd);
         tr.append(edit);
@@ -92,3 +97,66 @@ onValue(courseBranch, function(banner){
         }
     }
 });
+onValue(courseBranch, function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var div = $("<div>");
+
+        div.html(`
+            <div class="course-image">
+                <img src="${childData.course_image}" alt="course">
+            </div>
+            <div class="about-course">
+                <h4>${childData.course_name}</h4>
+                <p>${childData.teacher_name}</p>
+                <ul>
+                    <li><i class="fa fa-solid fa-laptop-code"></i> ${childData.course_term}</li>
+                    <li><i class="fa fa-solid fa-user"></i> ${childData.student_number}</li>
+                </ul>
+            </div>
+            <div class="btn">
+                <a href="${childData.page_url}">Ətraflı</a>
+            </div>
+        `);
+
+        div.attr('class', 'course');
+
+        $(".course-slider").append(div);
+    });
+
+    $('.course-slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        accessibility: true,
+        autoplay: true,
+        dots: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1008,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 780,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+    });
+}, {
+    onlyOnce: true
+})

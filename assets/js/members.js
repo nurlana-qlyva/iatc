@@ -102,3 +102,76 @@ onValue(memberBranch, function(banner){
         }
     }
 })
+onValue(memberBranch, function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var div = $("<div>");
+
+        div.html(`
+            <div class="member-image">
+                <img src="${childData.member_image}" alt="course">
+            </div>
+            <div class="about-member">
+                <h4><a href="#">${childData.member_name}</a></h4>
+                <p>${childData.member_profession}</p>
+                <ul>
+                    <li>
+                        <a href="${childData.fbAccountUrl}">
+                            <i class="fa fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${childData.twitterAccountUrl}">
+                            <i class="fa fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${childData.linkedinAccountUrl}">
+                            <i class="fa fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        `);
+
+        div.attr('class', 'members');
+
+        $(".member-slider").append(div);
+    });
+
+    $('.member-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        accessibility: true,
+        autoplay: true,
+        dots: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1008,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+    })
+}, {
+    onlyOnce: true
+})
