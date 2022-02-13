@@ -68,7 +68,6 @@
 /* section banner */
 /* slider */
 .banner-border{
-    border: 2px solid #1d32a2;
     border-radius: 10px;
 }
 .banner-img{
@@ -86,7 +85,7 @@
     padding: 50px 0 ;
 }
 .banner, .breadcrump-page{
-    padding: 126px 0 40px;
+    padding: 126px 0 80px;
 }
 .more-btn a, .asign-btn a{
     background-color: orange;
@@ -105,8 +104,8 @@
 }
 .more-btn{
     position: absolute;
-    bottom: 152px;
-    left: 100px;
+    bottom: 50px;
+    left: 60px;
 }
 .more-btn a:hover i , .asign-btn a:hover i{
     transform: translateX(20px);
@@ -127,7 +126,9 @@
 /* kurslarimiz */
 .our-course{
     text-align: center;
-    padding: 22px 0;
+}
+.heading{
+    padding: 80px 0;
 }
 .border-down{
     background-color: #192459;
@@ -151,6 +152,12 @@
     border-radius: 8px;
     position: relative;
     margin: 10px;
+}
+.thought{
+    background-color: aliceblue;
+    border-radius: 8px;
+    position: relative;
+    margin: 20px 10px;
 }
 .course-slider{
     height: 450px !important;
@@ -176,10 +183,14 @@
 .btn a:hover{
     background-position: left;
 }
+.about-course{
+    position: relative;
+}
 .btn{
-    right: 116px;
+    left: 0;
+    right: 0;
     position: absolute;
-    bottom: -34px;
+    bottom: -70px;
 }
 .about-course{
     padding-top: 40px;
@@ -294,7 +305,7 @@
 }
 .header-section{
     text-align: center;
-    margin: 40px 0;
+    margin-bottom: 40px;
 }
 /* footer */
 .footer{
@@ -428,24 +439,43 @@
     justify-content: center;
 }
 .breadcrumb-item a{
-    color: #fff;
+    color: #192459;
 }
 .breadcrumb-item a:hover{
-    color: orange;
+    color: #4b00ff;
     text-decoration: none;
 }
 .breadcrump-page{
     padding: 160px 0 40px;
-    background: #f4f4f4 url(../image/bg2.jpg);
+    background:  url(../image/bg-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center;
+    opacity: 0.4;
+    height: 400px;
+}
+.bg-on{
+    position: absolute;
+    left: 30px;
+    bottom: 60px;
 }
 .context{
-    color: #fff;
+    color: #192459;
+}
+.context h2{
+    font-size: 50px;
+}
+.context li {
+    font-size: 24px;
 }
 .breadcrumb-item.active{
-    color: orange;
+    color: #000;
+}
+.breadcrumb ol{
+    justify-content: baseline !important;
+}
+.breadcrumb{
+    padding: 0.75rem 0 !important;
 }
 .about-page-section, .about-course-section{
     padding: 80px 0;
@@ -525,7 +555,7 @@
     color: orange;
     margin-top: 4px;
 }
-.contact-section p{
+.contact-inner p{
     margin-left: 10px;
 }
 .register-section{
@@ -593,11 +623,16 @@
     width: 100%;
     height: 300px;
 }
-.event-image img{
+.student-image{
+    width: 100%;
+    height: 300px;
+}
+.event-image img, .student-image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 8px;
 }
 .event-page{
     color: #192459;
@@ -608,4 +643,41 @@
 }
 .event-page h2{
     margin-bottom: 30px;
+}
+.our-student{
+    background-color: #192459;
+    color: #192459;
+}
+.our-student span{
+    color: #192459;
+    opacity: 0.7;
+}
+.text-thought{
+    padding: 20px;
+}
+.student-thought{
+    margin-top: -264px;
+}
+.padding{
+    padding-bottom: 250px;
+}
+.custom{
+    position: relative;
+}
+.text-content ul li, .card-box span{
+    line-height: 30px;
+}
+.contact{
+    border-top:  1px solid #cecece;
+    padding-top: 20px;
+}
+.register-section h2, .about-ourcourse h2{
+    color: #192459;
+    margin-bottom: 20px;
+}
+.slick-arrow{
+    display: none !important;
+}
+.form textarea{
+    overflow: scroll;
 }

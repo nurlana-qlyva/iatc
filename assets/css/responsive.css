@@ -1,10 +1,4 @@
-@media (max-width:960px){
-    .image-ourcourse{
-        margin: 30px 0;
-    }
-    .about-page-section {
-        padding: 60px 0;
-    }
+@media (max-width: 991.98px){
     .view{
         display: none;
     }
@@ -14,77 +8,228 @@
     .menuBar{
         display: block !important;
     }
-}
-@media (max-width:800px) {
-    .about-page-section {
-        padding: 40px 0;
-    }
-    .slick-list{
-        height: 100%;
-    }
-    .account-iatc, .copy-text {
-        text-align: center;
-    }
-    .more-btn{
-        bottom: 30px;
-    }
-    .banner{
-        display: none;
-    }
-    .course-slider{
-        height: 508px !important;
-    }
-    .btn {
-        right: 181px;
-        position: absolute;
-        bottom: -32px;
-    }
-    .header-section {
-        text-align: center;
-        margin: 20px 0;
-    }
-}
-@media (max-width:300px){
-    .more-btn{
-        left: 58px;
-        bottom: -26px;
-    }
-    .btn{
-        right: 50px;
-    }
     .header-section{
-        margin: 20px 0;
+        margin-top: 10px;
     }
-    .about-course {
-        padding-top: 20px;
+    .image-card{
+        height: 160px;
     }
-}
-@media (max-width:400px){
-    .image-ourcourse{
-        display: none;
-    }
-    .about-page-section {
-        padding: 20px 0;
-    }
-    .about-member i{
+    .news-card h4, .all-btn a, .about-course p, .about-member p, .teacher-about{
         font-size: 16px;
     }
-    .about-course h4, .about-course p, .about-member h4, .about-member p{
-        font-size: 14px;
+    .about-course h4, .about-member h4, .text h4 {
+        font-size: 20px;
     }
     .about-course ul li{
-        font-size: 12px;
+        font-size: 14px;
     }
-    .btn a{
-        padding: 8px 14px;
+    .course{
+        padding: 14px;
     }
-    .slick-list{
-        height: inherit;
+    .about-course{
+        padding-bottom: 10px;
     }
-    .course-slider{
-        height: 330px !important;
+    .members{
+        padding: 20px;
+    }
+    .banner-img{
+        height: 450px;
+    }
+    .breadcrump-page{
+        height: 380px;
+    }
+    .image-ourcourse{
+        margin-top: 30px;
+    }
+    .heading{
+        padding: 50px 0;
+    }
+    .padding{
+        padding-bottom: 250px;
+    }
+    .banner, .breadcrump-page {
+        padding: 126px 0 50px;
+    }
+    .mega-menu-list li a, .sub-menu span a {
+        padding-bottom: 0;
+    }
+    .student-image{
+        height: 100%;
+    }
+    .student-image img{
+        object-position: right;
+    }
+    .text-thought{
+        padding-left: 0;
+    }
+    .teacher-content{
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+    .text-content{
+        padding: 30px;
+    }
+    .teacher-content{
+        margin-top: 0;
+    }
+    .card-box{
+        margin: 20px 0;
+        padding: 30px;
+    }
+    .contact-inner{
+        margin-bottom: 20px;
+    }
+    .contact{
+        margin: 20px 0 0;
+    }
+    .event-image img{
+        object-fit: contain;
+    }
+    .event-image{
+        margin-bottom: 20px;
+    }
+    .more-btn{
+        bottom: 46px;
+        left: 52px;
+    }
+    .form{
+        padding: 30px;
+    }
+    .btn{
+        bottom: -48px;
     }
 }
-@media (max-width:1000px){
-
+@media (max-width: 767.98px){
+    .banner, .breadcrump-page {
+        padding: 126px 0 30px;
+    }
+    .heading, .about-page-section, .about-course-section  {
+        padding: 30px 0;
+    }
+    .header-section{
+        margin-bottom: 20px;
+    }
+    .header-section h3, .register-section h2{
+        font-size: 24px;
+    }
+    .border-down{
+        height: 2px;
+    }
+    .course{
+        padding: 8px;
+    }
+    .btn{
+        bottom: -36px;
+    }
+    .about-course{
+        padding-top: 20px;
+    }
+    .btn a, .all-btn a{
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    .course-slider {
+        height: 350px !important;
+    }
+    .members{
+        padding: 16px;
+    }
+    .image-course{
+        margin-top: 10px;
+    }
+    .text-content, .teacher-content{
+        padding: 20px;
+    }
+    .account-iatc a i{
+        font-size: 14px;
+    }
+    .breadcrump-page {
+        height: 350px;
+    }
+    .bg-on{
+        bottom: 40px;
+    }
+    .padding{
+        padding-bottom: 250px;
+    }
+    .student-image{
+        height: 270px;
+    }
+    .contact-inner{
+        justify-content: inherit !important;
+    }
+}
+@media (max-width: 575.98px){
+    .course-slider {
+        height: 460px !important;
+    }
+    .heading, .about-page-section, .about-course-section  {
+        padding: 20px 0;
+    }
+    .image-card{
+        height: 280px;
+    }
+    .image-card img{
+        object-fit: cover;
+        object-position: center;
+    }
+    .news-card, .about-ourcourse h2{
+        margin-bottom: 10px;
+    }
+    .all-btn, .image-ourcourse{
+        margin-top: 20px;
+    }
+    .footer, .account-iatc{
+        text-align: center;
+    }
+    .account-iatc{
+        margin-top: 8px;
+    }
+    .banner, .breadcrump-page {
+        padding: 110px 0 20px;
+    }
+    .breadcrump-page {
+        height: 280px;
+    }
+    .bg-on{
+        left: 0;
+        bottom: 10px;
+    }
+    .about-ourcourse div{
+        font-size: 14px;
+    }
+    .context h2{
+        font-size: 30px;
+    }
+    .about-ourcourse h2, .event-page h2, .contact-section h2{
+        font-size: 24px;
+    }
+    .breadcrumb-item a, .breadcrumb-item{
+        font-size: 20px !important;
+    }
+    .image-ourcourse{
+        height: 250px;
+    }
+    .padding{
+        padding-bottom: 250px;
+    }
+    .student-image{
+        height: 250px;
+    }
+    .text-thought{
+        padding-left: 20px;
+    }
+    .form{
+        padding: 20px;
+    }
+    .border{
+        margin: 20px 0;
+    }
+    .contact-section h4{
+        font-size: 20px;
+    }
+    .form input{
+        height: 36px;
+        margin: 6px 0 10px;
+    }
 }

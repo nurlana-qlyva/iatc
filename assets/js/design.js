@@ -103,7 +103,7 @@ onValue(courseAboutDesignBranch, function(banner){
         div.html(`
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-md-8">
                         <div class="text-course">
                             <h3>${value.course_name}</h3>
                             <ul class="unstyled-list list-inline">
@@ -119,7 +119,7 @@ onValue(courseAboutDesignBranch, function(banner){
                             <div>${value.course_info}</div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-md-4">
                         <div class="image-course">
                             <img src="${value.course_image}" alt="front">
                         </div>

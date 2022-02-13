@@ -114,9 +114,9 @@ onValue(courseBranch, function (snapshot) {
                     <li><i class="fa fa-solid fa-laptop-code"></i> ${childData.course_term}</li>
                     <li><i class="fa fa-solid fa-user"></i> ${childData.student_number}</li>
                 </ul>
-            </div>
-            <div class="btn">
-                <a href="${childData.page_url}">Ətraflı</a>
+                <div class="btn">
+                    <a href="${childData.page_url}">Ətraflı</a>
+                </div>
             </div>
         `);
 
@@ -142,20 +142,130 @@ onValue(courseBranch, function (snapshot) {
               },
             },
             {
-              breakpoint: 1008,
+              breakpoint: 992,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
               },
             },
             {
-              breakpoint: 780,
+              breakpoint: 768,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
               },
             },
+            {
+                breakpoint: 576,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                },
+              },
           ],
+    });
+}, {
+    onlyOnce: true
+})
+const courseStudentBranch = ref(db, '/iatc/course/student');
+
+$('#studentBtn').on('click', function(e){
+    e.preventDefault();
+
+    var studentName = $('#student-name').val();
+    var studentİmage = $('#student-image').val();
+    var studentWork = $('#student-work').val();
+    var thought = $('#thought').val();
+
+    var courseArr = push(courseStudentBranch);
+
+    set(courseArr, {
+        studentName,
+        studentİmage,
+        studentWork,
+        thought
+    });
+});
+
+onValue(courseStudentBranch, function(banner){
+    var objBanner = banner.val();
+    
+    var count = 0;
+
+    for(let [key,value] of Object.entries(objBanner)){
+        var tr = document.createElement('tr');
+
+        var nameTd = document.createElement('td');
+        var imageTd = document.createElement('td');
+        var workTd = document.createElement('td');
+        var thoughtTd = document.createElement('td');
+
+        var edit = document.createElement('td');
+        var tdcount = document.createElement('td');
+
+        nameTd.innerHTML = value.studentName;
+        imageTd.innerHTML = value.studentİmage;
+        workTd.innerHTML = value.studentWork;
+        thoughtTd.innerHTML = value.thought;
+
+        count++;
+        tdcount.innerHTML = count;
+
+        nameTd.dataset.key = key;
+
+        edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        edit.classList.add('delete-btn');
+
+        tr.append(count);
+        tr.append(nameTd);
+        tr.append(imageTd);
+        tr.append(workTd);
+        tr.append(thoughtTd);
+        tr.append(edit);
+
+        $("#push-inner-student").append(tr);
+
+        edit.dataset.key = key;
+
+        edit.onclick = function(){
+            remove(ref(db, '/iatc/course/student/' + this.dataset.key));
+        }
+    }
+});
+onValue(courseStudentBranch, function (snapshot) {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+
+        var div = $("<div>");
+
+        div.html(`
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="student-image">
+                    <img src="${childData.studentİmage}" alt="student">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="text-thought">
+                    <h3>${childData.studentName}</h3>
+                    <h6>${childData.studentWork}</h6>
+                    <span>${childData.thought}</span>
+                </div>
+              </div>            
+            </div>
+        `);
+
+        div.attr('class', 'thought');
+        $('.student-slider').append(div)
+
+
+    });
+    $('.student-slider').slick({
+        infinite: true,
+        accessibility: true,
+        autoplay: true,
+        dots: true,
+        autoplaySpeed: 3000,
     });
 }, {
     onlyOnce: true

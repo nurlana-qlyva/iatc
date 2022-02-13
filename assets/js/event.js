@@ -99,7 +99,7 @@ onValue(eventsBranch, function(banner){
                     </a>
                 </div>
     `       );
-            div.attr('class', 'col-md-4');
+            div.attr('class', 'col-12 col-sm-6 col-md-4');
             $('.data').append(div);
     }
     

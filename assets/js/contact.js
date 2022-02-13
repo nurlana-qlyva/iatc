@@ -86,8 +86,8 @@ onValue(contactBranch, function(banner){
         var div = $("<div>");
 
         div.html(`
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
+                <div class="col-12 col-md-9 col-lg-5">
+                    <div class="d-flex justify-content-around contact-inner">
                         <i class="fa-solid fa-house-chimney"></i>
                         <div>
                             <h4>Ünvan:</h4>
@@ -95,8 +95,8 @@ onValue(contactBranch, function(banner){
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex justify-content-around contact-inner">
                         <i class="fa-solid fa-envelope"></i>
                         <div>
                             <h4>E-Mail:</h4>
@@ -104,8 +104,8 @@ onValue(contactBranch, function(banner){
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-2 col-md-4">
-                    <div class="d-flex justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex justify-content-around contact-inner">
                         <i class="fa-solid fa-mobile-screen-button"></i>
                         <div>
                             <h4>Telefon:</h4>

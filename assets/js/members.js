@@ -157,14 +157,14 @@ onValue(memberBranch, function (snapshot) {
               },
             },
             {
-              breakpoint: 1008,
+              breakpoint: 992,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
               },
             },
             {
-              breakpoint: 800,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
