@@ -4,7 +4,7 @@
     margin: 0 auto;
 }
 .admin-login{
-    background-color: #192459;
+    background-color: #192459; 
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -232,4 +232,118 @@
 }
 .collapse-btn a:hover{
     background-color: #050c2c;
+}
+.menu-responsive{
+    padding: 20px 15px;
+}
+.menu{
+    color: #fff;
+    font-size: 24px;
+    border-radius:4px;
+    outline: none !important;
+    border: 0;
+}
+.mega-menu p{
+    font-size:18px;
+}
+.side-menu{
+    background:rgba(0, 0, 0, 0.30);
+    position: fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    z-index:3;
+}
+.side-menu{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:all .4s ease;
+}
+.side-menu.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:all;
+}
+.mega-menu{
+    height:100vh;
+    background:#192459;
+    width:336px;   
+    box-shadow: -3px 3px 43px -11px rgba(166,166,166,0.75);
+    padding:32px;
+    transition:all .6s ease;
+    transform: translate(-100%);
+}
+.transform00{
+    transform: translate(0) !important;
+}
+.mega-menu-list .show-submenu{
+    all:unset;
+    width:24px;
+    height:24px;
+    border-radius:2px;
+    font-size:14px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    color:#586268;
+    cursor: pointer;
+}
+.mega-menu-list li a,.sub-menu span a{
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:16px;
+    color: #fff;
+}
+.mega-menu-list li:hover a, .sub-menu span a:hover{
+    text-decoration:none;
+    color:#f27a1a;
+}
+.sub-menu span{
+    display: block;
+}
+.sub-menu{
+    padding-left:12px;
+    display:none;
+}
+.sub-menu span a::before{
+    content:'';
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    border:1px solid #ACB3B8;
+    margin-right:12px;
+    position: relative;
+    top:-1px;
+}
+.show-submenu i{
+    transition:all .4s ease;
+}
+.has-submenu.active .show-submenu i{
+    transform:rotate(90deg);
+}
+.general-list li a{
+    margin-top:8px;
+    margin-bottom:8px;
+    display:inline-block;
+    color:#f27a1a;
+    font-size:20px;
+}
+.general-list li a span.test{
+    color:green;
+}
+.general-list li.pink{
+    color:pink;
+    background:yellow;
+}
+.logo-img-menu{
+    width: 200px;
+    height: 100px;
+}
+.logo-img-menu img{
+    width: 100%;
+    height: 100%;
 }

@@ -98,7 +98,6 @@ onValue(aboutBranch, function(banner){
                 </div>
             </div>
         `)
-        // div.attr('class', '')
         $(".about-page-section").append(div);
     }
 })
