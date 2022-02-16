@@ -221,6 +221,18 @@
             </div>
         </div>
     </footer>
+
+    <div class="scroll-button">
+        <button id="scrollTopBtn" onclick="scrollToTop()">
+            <i class="fa-solid fa-angle-up"></i>
+        </button>
+    </div>
+
+    <script>
+         function scrollToTop() {
+            $('html,body').animate({ scrollTop: 0 }, 'slow');
+        }
+    </script>
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

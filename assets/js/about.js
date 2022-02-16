@@ -41,6 +41,8 @@ $('#aboutMainBtn').on('click', function(e){
 onValue(aboutBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -70,15 +72,20 @@ onValue(aboutBranch, function(banner){
         tr.append(imageTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
             remove(ref(db, '/iatc/about/main/' + this.dataset.key));
         }
+
     }
-    for(let [key,value] of Object.entries(objBanner)){
+})
+onValue(aboutBranch, function(snapshot){
+    var arr = snapshot.val();
+
+    for(let [key,value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`

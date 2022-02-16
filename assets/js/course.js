@@ -49,6 +49,8 @@ $('#courseBtn').on('click', function(e){
 onValue(courseBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -88,7 +90,7 @@ onValue(courseBranch, function(banner){
         tr.append(numStudentTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -104,20 +106,21 @@ onValue(courseBranch, function (snapshot) {
         var div = $("<div>");
 
         div.html(`
-            <div class="course-image">
-                <img src="${childData.course_image}" alt="course">
-            </div>
-            <div class="about-course">
-                <h4>${childData.course_name}</h4>
-                <p>${childData.teacher_name}</p>
-                <ul>
-                    <li><i class="fa fa-solid fa-laptop-code"></i> ${childData.course_term}</li>
-                    <li><i class="fa fa-solid fa-user"></i> ${childData.student_number}</li>
-                </ul>
-                <div class="btn">
-                    <a href="${childData.page_url}">Ətraflı</a>
-                </div>
-            </div>
+            
+                            <div class="about-course">
+                                <h4>${childData.course_name}</h4>
+                                <p>${childData.teacher_name}</p>
+                                <ul>
+                                    <li><i class="fa fa-solid fa-laptop-code"></i> ${childData.course_term}</li>
+                                    <li><i class="fa fa-solid fa-user"></i>  ${childData.student_number}</li>
+                                </ul>
+                            </div>
+                            <div class="course-image">
+                                <img src="${childData.course_image}" alt="course">
+                            </div>
+                            <div class="btn">
+                                <a href="${childData.page_url}">Ətraflı</a>
+                            </div>
         `);
 
         div.attr('class', 'course');
@@ -190,6 +193,8 @@ $('#studentBtn').on('click', function(e){
 onValue(courseStudentBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner-student");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -223,7 +228,7 @@ onValue(courseStudentBranch, function(banner){
         tr.append(thoughtTd);
         tr.append(edit);
 
-        $("#push-inner-student").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -265,7 +270,7 @@ onValue(courseStudentBranch, function (snapshot) {
         accessibility: true,
         autoplay: true,
         dots: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
     });
 }, {
     onlyOnce: true

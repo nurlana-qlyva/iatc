@@ -26,30 +26,56 @@ const registerBranch = ref(db, '/iatc/register');
 
 $('#registerBtn').on('click', function(e){
     e.preventDefault();
-
     var programName = $('#program-name').val();
     var userName = $('#user-name').val();
     var phoneNumber = $('#phone-number').val();
     var emailAddress = $('#email-address').val();
     var aboutUser = $('#about-user').val();
 
-    var registerArr = push(registerBranch);
+    var regexpUser = new RegExp(/^[a-z, A-Z,',-]+(\s)[a-z,A-Z,',-]+$/);
+    var regexpNum = new RegExp(/^[+]+\d+$/);
+    var regexpMail = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
-    set(registerArr, {
-        program_name: programName,
-        user_name: userName,
-        phone_number: phoneNumber,
-        email_address: emailAddress,
-        about_user: aboutUser,
-    });
+    if(!regexpUser.test(userName)){
+            var user =  $("#user-name");
+            user.attr('class', 'bdred');
+            $("#error_name").show();
+    }else if(!regexpNum.test(phoneNumber)){
+            var phone = $('#phone-number');
+            phone.attr('class', 'bdred');
+            $("#error_phone").show();
+    }else if(!regexpMail.test(emailAddress)){
+            var email = $('#email-address');
+            email.attr('class', 'bdred');
+            $("#error_email").show();
+    }else{
+        Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your form is accessed!',
+                showConfirmButton: true,
+        })
+
+        var registerArr = push(registerBranch);
+
+        set(registerArr, {
+            program_name: programName,
+            user_name: userName,
+            phone_number: phoneNumber,
+            email_address: emailAddress,
+            about_user: aboutUser,
+        })
+    }
 });
 
 onValue(registerBranch, function(snapshot){
     var objBanner = snapshot.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
-    for(let [key,value] of Object.entries(objBanner)){
+    for(let [key,value] of Object.entries(objBanner)){ 
         var tr = document.createElement('tr');
 
         var programTd = document.createElement('td');
@@ -83,12 +109,12 @@ onValue(registerBranch, function(snapshot){
         tr.append(aboutTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
         edit.onclick = function(){
-            remove(ref(db, '/iatc/contact/' + this.dataset.key));
+            remove(ref(db, '/iatc/register/' + this.dataset.key));
         }
     }
 });

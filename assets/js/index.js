@@ -37,6 +37,7 @@ onValue(homeBannerBranch, function(banner){
     var objBanner = banner.val();
 
     var ul = document.querySelector('#banner-image-list');
+    ul.innerHTML = '';
 
     for(let [key,image] of Object.entries(objBanner)){
         var li = document.createElement('li');

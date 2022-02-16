@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getDatabase, ref, set, push, onValue, update, remove, get} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, update, remove, get, query, limitToLast} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
-export{ref, set, push, onValue, update, remove, get};
+export{ref, set, push, onValue, update, remove, get, query, limitToLast};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 export { getFirestore };
 
@@ -37,12 +37,14 @@ $('#eventBtn').on('click', function(e){
         event_image: eventImage,
         event_header: eventHeader,
         event_text: eventText,
-    });
+    }); 
 });
 
 onValue(eventsBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -73,17 +75,24 @@ onValue(eventsBranch, function(banner){
         tr.append(imageTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
-        edit.onclick = function(){
+        edit.onclick = function(){ 
             remove(ref(db, '/iatc/events/' + this.dataset.key));
         }
     }
 
 
-    for(let [key, value] of Object.entries(objBanner)){
+    
+}) 
+
+onValue(eventsBranch, function (snapshot) {
+    var arr = snapshot.val();
+
+    
+    for(let [key, value] of Object.entries(arr)){
         const div = $("<div>");
             div.html(`
                 <div class="news-card">
@@ -102,12 +111,6 @@ onValue(eventsBranch, function(banner){
             div.attr('class', 'col-12 col-sm-6 col-md-4');
             $('.data').append(div);
     }
-    
-}) 
-
-
-onValue(eventsBranch, function (snapshot) {
-    var arr = snapshot.val();
 
     var setKey;
     $(".card-img-top").on('click',function(){
@@ -116,7 +119,6 @@ onValue(eventsBranch, function (snapshot) {
     })
 
     var getKey = localStorage.getItem('key', setKey)
-    console.log(getKey)  
 
     for(let [key, value] of Object.entries(arr)){
 
@@ -143,3 +145,17 @@ onValue(eventsBranch, function (snapshot) {
 
     }
 })
+
+// const firstThreeRes = await ref(db, '/iatc/events').orderBy('event').limit(3).get();
+// var obj = new Object($('.data'))
+// $('.pagination').pagination({
+//     dataSource: obj,
+//     pageSize: 3,
+//     showPageNumbers: false,
+//     showNavigator: true,
+//     callback: function(data, pagination) {
+//         // template method of yourself
+//         var html = template(obj);
+//         dataContainer.html(html);
+//     }
+// })

@@ -19,7 +19,7 @@ export{ref, set, push, onValue, update, remove, get};
 export { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut};
 
 // login admin
-
+ 
 const auth = getAuth();
 
 $("#signUp").on('click', function(e){
@@ -64,12 +64,28 @@ $("#signInBtn").on('click', function(e){
                 last_login: dt,
             })
 
-            window.location.replace("../admin.html");
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'You are logged in!',
+                showConfirmButton: false,
+            })
+
+            window.setTimeout(function() {
+                window.location.href = './admin.html';
+            }, 2000);
+
+            // location.replace("./admin.html");
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert('errorMessage');
+            // alert('errorMessage');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your email or password is wrong!',
+            })
     });
 })
 
@@ -89,7 +105,7 @@ $("#logout").on('click', function(){
     signOut(auth).then(() => {
         // Sign-out successful.
 
-        window.location.assign("./admin/adminLogin.html");
+        window.location.assign("./login.html");
 
     }).catch((error) => {
         // An error happened.

@@ -43,6 +43,8 @@ $('#contactBtn').on('click', function(e){
 onValue(contactBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -73,7 +75,7 @@ onValue(contactBranch, function(banner){
         tr.append(phoneTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -81,8 +83,12 @@ onValue(contactBranch, function(banner){
             remove(ref(db, '/iatc/contact/' + this.dataset.key));
         }
     }
+});
 
-    for( let [key, value] of Object.entries(objBanner)){
+onValue(contactBranch, function(snapshot){
+    var arr = snapshot.val();
+
+    for( let [key, value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`
@@ -119,4 +125,4 @@ onValue(contactBranch, function(banner){
 
         $(".contact-section").append(div);
     }
-});
+})

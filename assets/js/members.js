@@ -51,6 +51,8 @@ $('#aboutMemebersBtn').on('click', function(e){
 onValue(memberBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -77,7 +79,7 @@ onValue(memberBranch, function(banner){
 
         count++;
         tdcount.innerHTML = count;
-
+ 
         nameTd.dataset.key = key;
 
         edit.innerHTML = '<i class="fas fa-trash-alt"></i>';
@@ -93,7 +95,7 @@ onValue(memberBranch, function(banner){
         tr.append(instagramTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -109,30 +111,32 @@ onValue(memberBranch, function (snapshot) {
         var div = $("<div>");
 
         div.html(`
-            <div class="member-image">
-                <img src="${childData.member_image}" alt="course">
-            </div>
-            <div class="about-member">
-                <h4><a href="#">${childData.member_name}</a></h4>
-                <p>${childData.member_profession}</p>
-                <ul>
-                    <li>
-                        <a href="${childData.fbAccountUrl}">
-                            <i class="fa fa-brands fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${childData.twitterAccountUrl}">
-                            <i class="fa fa-brands fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${childData.linkedinAccountUrl}">
-                            <i class="fa fa-brands fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <a href="#">
+                <div class="member-image">
+                    <img src="${childData.member_image}" alt="course">
+                </div>
+                <div class="about-member">
+                    <h4><a href="#">${childData.member_name}</a></h4>
+                    <p>${childData.member_profession}</p>
+                    <ul>
+                        <li>
+                            <a href="${childData.fbAccountUrl}">
+                                <i class="fa fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${childData.twitterAccountUrl}">
+                                <i class="fa fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${childData.linkedinAccountUrl}">
+                                <i class="fa fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </a>
         `);
 
         div.attr('class', 'members');

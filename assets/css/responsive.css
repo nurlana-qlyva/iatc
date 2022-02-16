@@ -175,20 +175,22 @@
     .main-content {
         width: 90%;
     }
+    .banner-img{
+        height: 300px;
+    }
 }
 @media (max-width: 575.98px){
     .course-slider {
-        height: 460px !important;
+        height: 400px !important;
     }
     .heading, .about-page-section, .about-course-section  {
         padding: 20px 0;
     }
     .image-card{
-        height: 280px;
+        height: 200px;
     }
     .image-card img{
-        object-fit: cover;
-        object-position: center;
+        object-position: top;
     }
     .news-card, .about-ourcourse h2{
         margin-bottom: 10px;
@@ -261,4 +263,38 @@
     .sidebar-menu{
         padding: 16px;
     }
+    .banner-img {
+        height: 240px;
+    }
+    .more-btn a{
+        padding: 6px 20px;
+        font-size: 12px;
+    }
+    .more-btn {
+        bottom: 28px;
+        left: 240px;
+    }
+}
+@media (min-width: 1200px){
+ .header-section h3{
+     font-size: 44px;
+ }
+ .about-course h4{
+     font-size: 30px;
+ }
+ .about-course p, .btn a, .all-btn a{
+     font-size: 22px;
+ }
+ .about-course ul li, .about-member p, .footer i,.custom-header{
+     font-size: 18px;
+ }
+ .news-card h4, .about-member a{
+     font-size: 24px;
+ }
+ .footer span{
+     font-size: 16px;
+ }
+ .course{
+     height: 262px;
+ }
 }

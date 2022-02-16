@@ -48,6 +48,8 @@ $('#courseAboutDesignBtn').on('click', function(e){
 onValue(courseAboutDesignBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-innerDesign");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -88,7 +90,7 @@ onValue(courseAboutDesignBranch, function(banner){
         tr.append(summaryTd);
         tr.append(edit);
 
-        $("#push-innerDesign").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -97,7 +99,11 @@ onValue(courseAboutDesignBranch, function(banner){
         }
     }
 
-    for(let [key,value] of Object.entries(objBanner)){
+})
+onValue(courseAboutDesignBranch, function(snapshot){
+    var arr = snapshot.val();
+
+    for(let [key,value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`
@@ -155,8 +161,11 @@ $('#courseAboutParticipantDesignBtn').on('click', function(e){
 onValue(courseAboutParticipantDesignBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#participantDesign');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#participantDesign');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_participant;
@@ -212,8 +221,11 @@ $('#courseAboutProgramDesignBtn').on('click', function(e){
 onValue(courseAboutProgramDesignBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#programDesign');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#programDesign');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_program;
@@ -269,8 +281,11 @@ $('#courseAboutSkillDesignBtn').on('click', function(e){
 onValue(courseAboutSkillDesignBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#skillDesign');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skillDesign');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_skill;
@@ -337,6 +352,9 @@ $('#courseAboutCardDesignBtn').on('click', function(e){
 
 onValue(courseAboutCardDesignBranch, function(snapshot){
     var arr = snapshot.val();
+
+    var tbody = document.querySelector("#push-cardDesign");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(var [key,value] of Object.entries(arr)){
@@ -379,7 +397,7 @@ onValue(courseAboutCardDesignBranch, function(snapshot){
         tr.append(assessmentTd);
         tr.append(edit);
 
-        $("#push-cardDesign").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -461,6 +479,8 @@ $('#courseAboutTeacherDesignBtn').on('click', function(e){
 onValue(courseAboutTeacherDesignBranch, function(snapshot){
     let arr = snapshot.val();
     
+    var tbody = document.querySelector("#push-teacherDesign");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(arr)){
@@ -497,7 +517,7 @@ onValue(courseAboutTeacherDesignBranch, function(snapshot){
         tr.append(infoTd);
         tr.append(edit);
 
-        $("#push-teacherDesign").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -505,6 +525,9 @@ onValue(courseAboutTeacherDesignBranch, function(snapshot){
             remove(ref(db, '/iatc/course/about/Design/teacher/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutTeacherDesignBranch, function(snapshot){
+    var arr = snapshot.val();
 
     for(let [key, value] of Object.entries(arr)){
         var div = $("<div>");

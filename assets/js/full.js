@@ -48,6 +48,8 @@ $('#courseAboutFullBtn').on('click', function(e){
 onValue(courseAboutFullBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-innerFull");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -88,7 +90,7 @@ onValue(courseAboutFullBranch, function(banner){
         tr.append(summaryTd);
         tr.append(edit);
 
-        $("#push-innerFull").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -96,8 +98,11 @@ onValue(courseAboutFullBranch, function(banner){
             remove(ref(db, '/iatc/course/about/Full/aboutCourse/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutFullBranch, function(snapshot){
+    var arr = snapshot.val();
 
-    for(let [key,value] of Object.entries(objBanner)){
+    for(let [key,value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`
@@ -155,8 +160,10 @@ $('#courseAboutParticipantFullBtn').on('click', function(e){
 onValue(courseAboutParticipantFullBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#participantFull');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#participantFull');
 
         var li = document.createElement('li');
         li.innerHTML = value.course_participant;
@@ -212,9 +219,10 @@ $('#courseAboutProgramFullBtn').on('click', function(e){
 onValue(courseAboutProgramFullBranch, function(banner){
     var objBanner = banner.val();
 
-    for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#programFull');
+    var ul = document.querySelector('#programFull');
+    ul.innerHTML = '';
 
+    for(let [key,value] of Object.entries(objBanner)){
         var li = document.createElement('li');
         li.innerHTML = value.course_program;
         li.classList.add('list-style');
@@ -269,9 +277,10 @@ $('#courseAboutSkillFullBtn').on('click', function(e){
 onValue(courseAboutSkillFullBranch, function(banner){
     var objBanner = banner.val();
 
-    for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skillFull');
+    var ul = document.querySelector('#skillFull');
+    ul.innerHTML = '';
 
+    for(let [key,value] of Object.entries(objBanner)){
         var li = document.createElement('li');
         li.innerHTML = value.course_skill;
         li.classList.add('list-style');
@@ -337,6 +346,9 @@ $('#courseAboutCardFullBtn').on('click', function(e){
 
 onValue(courseAboutCardFullBranch, function(snapshot){
     var arr = snapshot.val();
+
+    var tbody = document.querySelector("#push-cardFull");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(var [key,value] of Object.entries(arr)){
@@ -379,7 +391,7 @@ onValue(courseAboutCardFullBranch, function(snapshot){
         tr.append(assessmentTd);
         tr.append(edit);
 
-        $("#push-cardFull").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -461,6 +473,8 @@ $('#courseAboutTeacherFullBtn').on('click', function(e){
 onValue(courseAboutTeacherFullBranch, function(snapshot){
     let arr = snapshot.val();
     
+    var tbody = document.querySelector("#push-teacherFull");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(arr)){
@@ -497,7 +511,7 @@ onValue(courseAboutTeacherFullBranch, function(snapshot){
         tr.append(infoTd);
         tr.append(edit);
 
-        $("#push-teacherFull").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -505,6 +519,9 @@ onValue(courseAboutTeacherFullBranch, function(snapshot){
             remove(ref(db, '/iatc/course/about/Full/teacher/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutTeacherFullBranch, function(snapshot){
+    var arr = snapshot.val();
 
     for(let [key, value] of Object.entries(arr)){
         var div = $("<div>");

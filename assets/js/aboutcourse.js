@@ -48,6 +48,8 @@ $('#courseAboutBackendBtn').on('click', function(e){
 onValue(courseAboutBranch, function(banner){
     var objBanner = banner.val();
     
+    var tbody = document.querySelector("#push-inner");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(objBanner)){
@@ -88,7 +90,7 @@ onValue(courseAboutBranch, function(banner){
         tr.append(summaryTd);
         tr.append(edit);
 
-        $("#push-inner").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -96,8 +98,11 @@ onValue(courseAboutBranch, function(banner){
             remove(ref(db, '/iatc/course/about/backend/aboutCourse/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutBranch, function(snapshot){
+    var arr = snapshot.val();
 
-    for(let [key,value] of Object.entries(objBanner)){
+    for(let [key,value] of Object.entries(arr)){
         var div = $("<div>");
 
         div.html(`
@@ -155,8 +160,11 @@ $('#courseAboutParticipantBackendBtn').on('click', function(e){
 onValue(courseAboutParticipantBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#skill');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skill');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_participant;
@@ -212,8 +220,11 @@ $('#courseAboutProgramBackendBtn').on('click', function(e){
 onValue(courseAboutProgramBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#program');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#program');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_program;
@@ -269,8 +280,11 @@ $('#courseAboutSkillBackendBtn').on('click', function(e){
 onValue(courseAboutSkillBranch, function(banner){
     var objBanner = banner.val();
 
+    var ul = document.querySelector('#skill');
+    ul.innerHTML = '';
+
     for(let [key,value] of Object.entries(objBanner)){
-        var ul = document.querySelector('#skill');
+
 
         var li = document.createElement('li');
         li.innerHTML = value.course_skill;
@@ -337,6 +351,9 @@ $('#courseAboutCardBackendBtn').on('click', function(e){
 
 onValue(courseAboutCardBranch, function(snapshot){
     var arr = snapshot.val();
+
+    var tbody = document.querySelector("#push-card");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(var [key,value] of Object.entries(arr)){
@@ -379,7 +396,7 @@ onValue(courseAboutCardBranch, function(snapshot){
         tr.append(assessmentTd);
         tr.append(edit);
 
-        $("#push-card").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -461,6 +478,8 @@ $('#courseAboutTeacherBackendBtn').on('click', function(e){
 onValue(courseAboutTeacherBranch, function(snapshot){
     let arr = snapshot.val();
     
+    var tbody = document.querySelector("#push-teacher");
+    tbody.innerHTML = '';
     var count = 0;
 
     for(let [key,value] of Object.entries(arr)){
@@ -497,7 +516,7 @@ onValue(courseAboutTeacherBranch, function(snapshot){
         tr.append(infoTd);
         tr.append(edit);
 
-        $("#push-teacher").append(tr);
+        tbody.append(tr);
 
         edit.dataset.key = key;
 
@@ -505,6 +524,9 @@ onValue(courseAboutTeacherBranch, function(snapshot){
             remove(ref(db, '/iatc/course/about/backend/teacher/' + this.dataset.key));
         }
     }
+})
+onValue(courseAboutTeacherBranch, function(snapshot){
+    var arr = snapshot.val();
 
     for(let [key, value] of Object.entries(arr)){
         var div = $("<div>");
