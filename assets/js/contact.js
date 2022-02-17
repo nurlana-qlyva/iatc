@@ -92,8 +92,8 @@ onValue(contactBranch, function(snapshot){
         var div = $("<div>");
 
         div.html(`
-                <div class="col-12 col-md-9 col-lg-5">
-                    <div class="d-flex justify-content-around contact-inner">
+                <div class="col-12 col-md-9">
+                    <div class="d-flex justify-content-start contact-inner">
                         <i class="fa-solid fa-house-chimney"></i>
                         <div>
                             <h4>Ünvan:</h4>
@@ -101,8 +101,8 @@ onValue(contactBranch, function(snapshot){
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="d-flex justify-content-around contact-inner">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-start contact-inner">
                         <i class="fa-solid fa-envelope"></i>
                         <div>
                             <h4>E-Mail:</h4>
@@ -110,8 +110,8 @@ onValue(contactBranch, function(snapshot){
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="d-flex justify-content-around contact-inner">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-start contact-inner">
                         <i class="fa-solid fa-mobile-screen-button"></i>
                         <div>
                             <h4>Telefon:</h4>

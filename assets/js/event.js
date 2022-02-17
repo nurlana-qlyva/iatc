@@ -103,6 +103,7 @@ onValue(eventsBranch, function (snapshot) {
                             </div>
                             <div class="header-card">
                                 <h4 dataset-header="${key}">${value.event_header}</h5>
+                                <span>22.02.2021</span>
                             </div>
                         </div>
                     </a>

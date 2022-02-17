@@ -61,7 +61,7 @@
     border: none;
 }
 .custom-header ul li{
-    padding-right: 40px;
+    padding-right: 20px;
     display: inline;
 }
 .dropdown-item{
@@ -479,7 +479,7 @@
 /* about page */
 .breadcrumb{
     background: transparent !important;
-    justify-content: center;
+    justify-content: baseline;
 }
 .breadcrumb-item a{
     color: #192459;
@@ -744,4 +744,41 @@
 }  
 .bdred {
     border-color: red !important;
+}
+/* font */
+.custom-header li a, .more-btn a{
+    font-size: 18px;
+}
+.context h2{
+    font-size: 50px;
+}
+.header-section h3{
+    font-size: 40px;
+}
+.about-ourcourse h2, .text-thought h3, .event-page h2, .contact-section h2, .text-course h3{
+    font-size: 36px;
+}
+.about-course h4, .form-view label, .text-content h4, .card-box h4, .teacher-content h4{
+    font-size: 28px;
+}
+.breadcrumb-item a, .text-thought h6{
+    font-size: 24px;
+}
+.about-course p, .btn a, .all-btn a, .custom-header ul li, .about-ourcourse div, .about-member p, .text-thought span, ::placeholder, #registerBtn, .event-text, .contact-section p, .text-course div, #text-summary, .text-content ul li, .teacher-content div, .more-btn a, select{
+    font-size: 20px;
+}
+.about-course ul li, .about-member p, .footer i,.custom-header, .card-box span{
+    font-size: 18px;
+}
+.news-card h4, .about-member a{
+    font-size: 22px;
+}
+.footer span{
+    font-size: 14px;
+}
+.form input, .form textarea, .form select{
+    padding: 14px 16px;
+}
+.contact-inner{
+    margin-bottom: 20px;
 }

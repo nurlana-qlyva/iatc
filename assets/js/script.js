@@ -28,3 +28,7 @@ $(function(){
     })
     $('.general-list li').eq(2).addClass('pink').nextUntil('.prountil').addClass('.lorem');
 })
+
+$("#passToAdmin").on('click', function(){
+    location.replace('./admin/login.html')
+})

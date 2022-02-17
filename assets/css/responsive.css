@@ -98,6 +98,39 @@
     .btn{
         bottom: -48px;
     }
+    .banner-img {
+        height: 350px;
+    }
+    .custom-header li a, .more-btn a{
+        font-size: 16px;
+    }
+    .context h2{
+        font-size: 44px;
+    }
+    .header-section h3{
+        font-size: 36px;
+    }
+    .about-ourcourse h2, .text-thought h3, .event-page h2, .contact-section h2, .text-course h3{
+        font-size: 30px;
+    }
+    .about-course h4, .form-view label, .text-content h4, .card-box h4, .teacher-content h4{
+        font-size: 24px;
+    }
+    .breadcrumb-item a, .text-thought h6{
+        font-size: 22px;
+    }
+    .about-course p, .btn a, .all-btn a, .custom-header ul li, .about-ourcourse div, .about-member p, .text-thought span, ::placeholder, #registerBtn, .event-text, .contact-section p, .text-course div, #text-summary, .text-content ul li, .teacher-content div, .more-btn a, select{
+        font-size: 18px;
+    }
+    .about-course ul li, .about-member p, .footer i,.custom-header, .card-box span{
+        font-size: 16px;
+    }
+    .news-card h4, .about-member a{
+        font-size: 20px;
+    }
+    .footer span{
+        font-size: 12px;
+    }
 }
 @media (max-width: 767.98px){
     .banner, .breadcrump-page {
@@ -129,7 +162,7 @@
         padding: 10px 20px;
     }
     .course-slider {
-        height: 350px !important;
+        height: 290px !important;
     }
     .members{
         padding: 16px;
@@ -178,10 +211,49 @@
     .banner-img{
         height: 300px;
     }
+    .text-thought{
+        padding-left: 20px;
+    }
+    .custom-header li a, .more-btn a{
+        font-size: 16px;
+    }
+    .context h2{
+        font-size: 40px;
+    }
+    .header-section h3{
+        font-size: 32px;
+    }
+    .about-ourcourse h2, .text-thought h3, .event-page h2, .contact-section h2, .text-course h3{
+        font-size: 28px;
+    }
+    .about-course h4, .form-view label, .text-content h4, .card-box h4, .teacher-content h4{
+        font-size: 22px;
+    }
+    .breadcrumb-item a, .text-thought h6{
+        font-size: 20px;
+    }
+    .about-course p, .btn a, .all-btn a, .custom-header ul li, .about-ourcourse div, .about-member p, .text-thought span, ::placeholder, #registerBtn, .event-text, .contact-section p, .text-course div, #text-summary, .text-content ul li, .teacher-content div, .more-btn a, select{
+        font-size: 16px;
+    }
+    .about-course ul li, .about-member p, .footer i,.custom-header, .card-box span{
+        font-size: 16px;
+    }
+    .news-card h4, .about-member a{
+        font-size: 18px;
+    }
+    .footer span{
+        font-size: 12px;
+    }
+    .contact-inner{
+        margin-bottom: 10px;
+    }
+    .contact-section{
+        padding: 20px;
+    }
 }
 @media (max-width: 575.98px){
     .course-slider {
-        height: 400px !important;
+        height: 280px !important;
     }
     .heading, .about-page-section, .about-course-section  {
         padding: 20px 0;
@@ -272,29 +344,92 @@
     }
     .more-btn {
         bottom: 28px;
-        left: 240px;
+        left: 40px;
+    }
+    .custom-header li a, .more-btn a{
+        font-size: 14px;
+    }
+    .context h2{
+        font-size: 36px;
+    }
+    .header-section h3{
+        font-size: 30px;
+    }
+    .about-ourcourse h2, .text-thought h3, .event-page h2, .contact-section h2, .text-course h3{
+        font-size: 24px;
+    }
+    .about-course h4, .form-view label, .text-content h4, .card-box h4, .teacher-content h4{
+        font-size: 20px;
+    }
+    .breadcrumb-item a, .text-thought h6{
+        font-size: 18px;
+    }
+    .about-course p, .btn a, .all-btn a, .custom-header ul li, .about-ourcourse div, .about-member p, .text-thought span, ::placeholder, #registerBtn, .event-text, .contact-section p, .text-course div, #text-summary, .text-content ul li, .teacher-content div, .more-btn a, select{
+        font-size: 14px;
+    }
+    .about-course ul li, .about-member p, .footer i,.custom-header, .card-box span{
+        font-size: 14px;
+    }
+    .news-card h4, .about-member a{
+        font-size: 16px;
+    }
+    .footer span{
+        font-size: 12px;
+    }
+    .contact-inner{
+        margin-bottom: 8px;
+    }
+    .course{
+        padding: 30px;
+    }
+    .btn{
+        bottom: -24px;
     }
 }
 @media (min-width: 1200px){
- .header-section h3{
-     font-size: 44px;
- }
- .about-course h4{
-     font-size: 30px;
- }
- .about-course p, .btn a, .all-btn a{
-     font-size: 22px;
- }
- .about-course ul li, .about-member p, .footer i,.custom-header{
-     font-size: 18px;
- }
- .news-card h4, .about-member a{
-     font-size: 24px;
- }
- .footer span{
-     font-size: 16px;
- }
- .course{
-     height: 262px;
- }
+    .context h2{
+        font-size: 56px;
+    }
+    .header-section h3{
+        font-size: 44px;
+    }
+    .about-ourcourse h2, .text-thought h3, .event-page h2, .contact-section h2, .text-course h3{
+        font-size: 40px;
+    }
+    .about-course h4, .form-view label, .text-content h4, .card-box h4, .teacher-content h4{
+        font-size: 30px;
+    }
+    .breadcrumb-item a, .text-thought h6{
+        font-size: 28px;
+    }
+    .about-course p, .btn a, .all-btn a, .custom-header ul li, .about-ourcourse div, .about-member p, .text-thought span, ::placeholder, #registerBtn, .event-text, .contact-section p, .text-course div, #text-summary, .text-content ul li, .teacher-content div, .more-btn a, select{
+        font-size: 22px;
+    }
+    .about-course ul li, .about-member p, .footer i,.custom-header, .card-box span{
+        font-size: 18px;
+    }
+    .news-card h4, .about-member a{
+        font-size: 24px;
+    }
+    .footer span{
+        font-size: 16px;
+    }
+    .course{
+        height: 262px;
+    }
+    .student-image{
+        height: 470px;
+    }
+    .student-image img{
+        object-position: right;
+    }
+    .form input, .form textarea, .form select{
+        padding: 20px 16px;
+    }
+    #semdBtn button{
+        padding: 16px 30px;
+    }
+    .custom-header ul li{
+        padding-right: 20px;
+    }
 }
