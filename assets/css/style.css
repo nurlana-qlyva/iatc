@@ -782,3 +782,11 @@
 .contact-inner{
     margin-bottom: 20px;
 }
+.map{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+iframe, .mapouter, .gmap_canvas{
+    width: 100% !important;
+}
