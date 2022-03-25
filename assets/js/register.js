@@ -32,29 +32,36 @@ $('#registerBtn').on('click', function(e){
     var emailAddress = $('#email-address').val();
     var aboutUser = $('#about-user').val();
 
-    var regexpUser = new RegExp(/^[a-z, A-Z,',-]+(\s)[a-z,A-Z,',-]+$/);
+    var regexpUser = new RegExp(/^[a-z, A-Z]+(\s)[a-z,A-Z]+$/);
     var regexpNum = new RegExp(/^[+]+\d+$/);
     var regexpMail = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
     if(!regexpUser.test(userName)){
-            var user =  $("#user-name");
-            user.attr('class', 'bdred');
+            $("#user-name").attr('class', 'bdred');
             $("#error_name").show();
-    }else if(!regexpNum.test(phoneNumber)){
-            var phone = $('#phone-number');
-            phone.attr('class', 'bdred');
+    }else{
+        $("#user-name").attr('class', 'bdgreen');
+        $("#error_name").hide();
+    }
+
+    if(!regexpNum.test(phoneNumber)){
+            $('#phone-number').attr('class', 'bdred');
             $("#error_phone").show();
-    }else if(!regexpMail.test(emailAddress)){
-            var email = $('#email-address');
-            email.attr('class', 'bdred');
+    }else{
+        $('#phone-number').attr('class', 'bdgreen');
+        $("#error_phone").hide();
+    }
+    
+    if(!regexpMail.test(emailAddress)){
+            $('#email-address').attr('class', 'bdred');
             $("#error_email").show();
     }else{
-        Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Your form is accessed!',
-                showConfirmButton: true,
-        })
+        $('#email-address').attr('class', 'bdgreen');
+        $("#error_email").hide();
+    }
+
+    if(regexpUser.test(userName) && regexpNum.test(phoneNumber) && regexpMail.test(emailAddress)) {
+        
 
         var registerArr = push(registerBranch);
 
@@ -65,6 +72,17 @@ $('#registerBtn').on('click', function(e){
             email_address: emailAddress,
             about_user: aboutUser,
         })
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your form is accessed!',
+            showConfirmButton: true,
+        })
+
+        window.setTimeout(function() {
+            window.location.reload();
+        }, 3000);
     }
 });
 

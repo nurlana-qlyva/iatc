@@ -745,6 +745,9 @@
 .bdred {
     border-color: red !important;
 }
+.bdgreen{
+    border-color: green !important;
+}
 /* font */
 .custom-header li a, .more-btn a{
     font-size: 18px;
