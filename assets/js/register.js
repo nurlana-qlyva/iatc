@@ -4,14 +4,14 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA_gpkpE4lcPVf2qVJhfrrsnmfDsK_WEj4",
-    authDomain: "israelwebsite-c76a9.firebaseapp.com",
-    databaseURL: "https://israelwebsite-c76a9-default-rtdb.firebaseio.com",
-    projectId: "israelwebsite-c76a9",
-    storageBucket: "israelwebsite-c76a9.appspot.com",
-    messagingSenderId: "471677978707",
-    appId: "1:471677978707:web:a288d65ce26d2853809ea6",
-    measurementId: "G-E5CMSTFBSE"
+  apiKey: "AIzaSyCYErBQaHHxypzk6StbhxxS39jFUlHRRT8",
+  authDomain: "iatc-1434a.firebaseapp.com",
+  databaseURL: "https://iatc-1434a-default-rtdb.firebaseio.com",
+  projectId: "iatc-1434a",
+  storageBucket: "iatc-1434a.firebasestorage.app",
+  messagingSenderId: "72320637329",
+  appId: "1:72320637329:web:a867397b9d35734a1d6230",
+  measurementId: "G-D1F49VM4VW"
 };
 
 const app = initializeApp(firebaseConfig);
